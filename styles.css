@@ -1,0 +1,125 @@
+:root{
+    /*Color Principal*/
+    --main-color:#65B741;
+    --main-color-hoover:#C5EBAA;
+
+    /*Color Secundario*/
+    --sec-color:#FF9843;
+    --sec-color-hoover:#F2C18D;
+
+    /*Color Background*/
+    --background-color:#FBF6EE;
+    --dark-background-color:#114232; 
+
+    /*Shadow*/
+    --shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.7);
+}
+
+*{
+    margin: 0;
+}
+
+.home{
+    background-color: var(--background-color);
+    font-weight: bold;
+    font-size: larger;
+}
+
+/*Nav*/
+
+.home nav{
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    position: fixed;
+    color: var(--background-color);
+    align-items: center;
+    justify-content: center;
+}
+
+.home nav.scrolling {
+    background-color: var(--main-color);
+    transition: 0.5s ease;
+}
+
+
+.home nav img{
+    margin-left: auto;
+}
+
+.home nav ul{
+    display: flex;
+    margin: 0 auto;
+    list-style-type: none;
+}
+
+.home nav ul li{
+    padding: 10px;
+    color: var(--background-color);
+    text-shadow: var(--shadow);
+}
+
+.home nav button{
+    margin-right: auto;
+
+    width: 120px;
+    background-color: var(--sec-color);
+    border-radius: 50px;
+    border-style: none;
+    padding: 5px;
+    box-shadow: var(--shadow);
+
+    color: var(--background-color);
+    text-shadow: var(--shadow);
+    font-size: large;
+    cursor: pointer;
+    transition: 1s ease;
+}
+.home nav button:hover{
+    background-color: var(--sec-color-hoover);
+}
+
+/*Header*/
+
+.home header{
+    height: 100vh;
+    background-image: url("./assets/img/home.png");
+    /*background-repeat: no-repeat;*/
+    background-size: contain;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    /*Text*/
+    color: var(--background-color);
+    text-shadow: var(--shadow);
+}
+
+.home header h1{
+    margin-left: 35px;
+    margin-bottom: 15px;
+}
+
+.home header p{
+    margin-left: 35px;
+    margin-bottom: 20px;
+}
+
+.home header button{
+    margin-left: 35px;
+    width: 120px;
+    background-color: var(--main-color);
+    border-radius: 50px;
+    border-style: none;
+    padding: 10px;
+    box-shadow: var(--shadow);
+
+    color: var(--background-color);
+    text-shadow: var(--shadow);
+    font-size: large;
+    cursor: pointer;
+    transition: 1s ease;
+}
+.home header button:hover{
+    background-color: var(--main-color-hoover);
+}
