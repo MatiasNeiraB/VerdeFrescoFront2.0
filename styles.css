@@ -1,11 +1,11 @@
 :root{
     /*Color Principal*/
     --main-color:#65B741;
-    --main-color-hoover:#C5EBAA;
+    --main-color-hoover:#A8CD9F;
 
     /*Color Secundario*/
     --sec-color:#FF9843;
-    --sec-color-hoover:#F2C18D;
+    --sec-color-hoover:#FFB38E;
 
     /*Color Background*/
     --background-color:#FBF6EE;
