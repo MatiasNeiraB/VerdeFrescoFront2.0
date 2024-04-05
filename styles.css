@@ -29,7 +29,10 @@
 body{
     background-color: var(--background-color);
     font-weight: bold;
-    font-size: larger;
+}
+
+h1{
+    font-size: 40px;
 }
 
 button{
@@ -48,6 +51,7 @@ button{
     cursor: pointer;
     transition: 1s ease;
 }
+
 button:hover{
     background-color: var(--main-color-hoover);
 }
@@ -61,7 +65,8 @@ nav{
     position: fixed;
     color: var(--background-color);
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    filter: drop-shadow(var(--shadow));
 }
 
 nav.scrolling {
@@ -72,15 +77,25 @@ nav.scrolling {
     /*Navbar Logo*/
 nav .navbar-left{
     margin-left: 35px;
-    text-shadow: var(--shadow); 
-    font-size: 25px;
+    width: 15%;
+    height: 100%;
+    text-shadow: var(--shadow);
+    justify-content: center;
+    align-items: center;
+    
 }
 
+nav .navbar-left a img{
+    padding: 10px 0 0 0;
+    height: 70%;
+    width: auto;
+    filter: drop-shadow(var(--shadow)) ;
+}
 
     /*Navbar Links*/
 nav .navbar-middle{
+    width: auto;
     display: flex;
-    margin: 0 auto;
     list-style-type: none;
 }
 
@@ -89,11 +104,17 @@ nav .navbar-middle a{
     color: var(--background-color);
     text-shadow: var(--shadow);
     text-decoration: none;
+    transition: 1s ease;
+    font-size: 20px;
+}
+
+nav .navbar-middle a:hover{
+    transform: scale(1.1);
 }
 
     /*Navbar Icons*/
 nav .navbar-right {
-    margin-right: 65px;
+    width: 15%;
     text-shadow: var(--shadow);    
 }
 
@@ -116,7 +137,6 @@ nav .navbar-right a:hover {
 header{
     height: 100vh;
     background-image: url("./assets/img/home.png");
-    /*background-repeat: no-repeat;*/
     background-size: contain;
     justify-content: center;
     display: flex;
@@ -147,7 +167,7 @@ header button{
 
 /*Section About*/
 
-.about{
+article{
     margin: 35px;
     height: 100vh;
     display: flex;
@@ -155,15 +175,15 @@ header button{
     justify-content: center;
 }
 
-.about .left h1{
+article .left h1{
     font-size: 40px;
 }
 
-.about .left p{
+article .left p{
     padding: 30px 0;
 }
 
-.about img{
+article img{
     height: 450px;
     width: 500px;
     margin: 35px;
@@ -171,17 +191,46 @@ header button{
     box-shadow: var(--shadow);
 }
 
+
+
 /*Section Star Products*/
 
-.products{
+.star-products{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 200px;
 }
 
-.products .card img{
-    width: 50px;
-    height: 50px;
+.star-products .cards{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
 }
+
+.star-products .cards .card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 35px;
+    margin: 0 250px;
+}
+
+.star-products .cards .card img{
+    width: 250px;
+    height: 250px;
+    border-radius: 25%;
+    box-shadow: var(--shadow);
+}
+
+.star-products .cards .card button{
+    width: 150px;
+    margin-top: 50px;
+}
+
+
 
 /*Footer*/
 
@@ -190,14 +239,13 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 250px;
+    gap: 300px;
     background-color: var(--main-color);
     color: var(--background-color);
     text-shadow: var(--shadow);
 }
 
 footer .footer-left{
-    width: 300px;
     height: 225px;
     align-items: center;
     justify-content: center;
@@ -207,5 +255,21 @@ footer .footer-left{
 footer .footer-left ul{
     list-style-type: none;
     padding: 15px 0;
+    font-size: 20px;
 }
 
+footer .footer-left .social{
+    display: flex;
+    gap: 40px;
+}
+
+footer .footer-left .social a{
+    font-size: 45px;
+    text-shadow: var(--shadow);
+    color: var(--background-color);
+    transition: 1s;
+}
+
+footer .footer-left .social a:hover{
+    transform: scale(1.2);
+}
