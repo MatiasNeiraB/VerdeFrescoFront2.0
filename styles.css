@@ -299,16 +299,18 @@ footer .footer-left .social a:hover {
     min-height: 100vh;
 }
 
-.form-login {
+.block-login {
+    position: relative;
+    width: 400px;
+    border: solid 2px;
+    border-radius: 70px;
+    backdrop-filter: blur(15px);
+    height: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 400px;
-    height: 500px;
     background-color: var(--main-color-hoover);
-    border: solid 1px;
     margin: 50px 0px;
-    border-radius: 70px
 }
 
 .input-login {
@@ -322,20 +324,20 @@ footer .footer-left .social a:hover {
     position: absolute;
     top: 50%;
     left: 5px;
-    transform: translate(-50%);
+    transform: translateY(-50%);
     color: black;
     font-size: 1rem;
-    pointer-events: none;
-    transition: .6s;
-    font-family: bold;
+    pointer-events:none;
+    transition: .5s;
 }
 
-form input:focus~label,
-form input:valid~label {
+input:focus ~ label{
     top: -5px;
 }
 
-form input {
-    background-color: transparent;
 
+.input-login input {
+    background-color: transparent;
+    border: none;
+    outline: none;
 }
