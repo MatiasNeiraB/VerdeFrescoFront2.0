@@ -242,12 +242,6 @@ footer .footer-left {
     list-style: none;
 }
 
-footer .footer-left ul {
-    list-style-type: none;
-    padding: 15px 0;
-    font-size: 20px;
-}
-
 footer .footer-left .social {
     display: flex;
     gap: 40px;
@@ -269,7 +263,7 @@ footer .footer-left .social a:hover {
 .nav-login {
     display: flex;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     height: 50px;
     background-color: var(--main-color);
     align-items: center;
@@ -302,8 +296,8 @@ footer .footer-left .social a:hover {
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 .block-login {
@@ -403,7 +397,6 @@ footer .footer-left .social a:hover {
     text-align: center;
 }
 
-
 .register {
     display: flex;
     justify-content: center;
@@ -424,7 +417,7 @@ footer .footer-left .social a:hover {
     border-bottom: 2px solid black;
 }
 
-.input-register input{
+.input-register input {
     width: 400px;
 }
 
@@ -460,7 +453,6 @@ footer .footer-left .social a:hover {
     right: 5px;
     top: 3px;
 }
-
 
 .input-register input:focus ~ label,
 .input-register input:valid ~ label {
@@ -502,21 +494,54 @@ footer .footer-left .social a:hover {
 }
 
 @media (max-width: 450px) {
-footer .footer-left {
-    align-items: center;
-    list-style: none;
-}
+    footer .footer-left {
+        align-items: center;
+        list-style: none;
+    }
 }
 
 @media (max-width: 450px) {
-footer {
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 300px;
-    background-color: var(--main-color);
-    color: var(--background-color);
-    text-shadow: var(--shadow);
+    footer {
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0px;
+        background-color: var(--main-color);
+        color: var(--background-color);
+        text-shadow: var(--shadow);
+    }
 }
+
+#loading {
+    display: none; /* Ocultar inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
+    z-index: 9999; /* Asegurarse de que esté por encima de otros elementos */
+}
+
+#loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 5px solid #f3f3f3; /* Círculo exterior */
+    border-top: 5px solid #3498db; /* Círculo interior */
+    border-radius: 50%;
+    animation: spin 2s linear infinite; /* Animación de rotación */
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
