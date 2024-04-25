@@ -2,8 +2,9 @@ function loginCheck(event) {
     event.preventDefault();
     let emailValue = document.getElementById('email').value;
     let passwordValue = document.getElementById('password').value;
-    let emailLS = localStorage.getItem('email');
-    let passwordLS = localStorage.getItem('password');
+    let userLS = JSON.parse(localStorage.getItem('users'));
+    let emailLS = userLS.email;
+    let passwordLS = userLS.password;
 
     if (emailValue.includes('@')) {
         if (emailValue === emailLS) {
