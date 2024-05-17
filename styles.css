@@ -131,10 +131,11 @@ nav .navbar-right a:hover {
 }
 
 
+/*INDEX*/
 
 /*Header*/
 
-header{
+.header-index{
     height: 100vh;
     background-image: url("./assets/img/home.png");
     background-size: contain;
@@ -147,19 +148,19 @@ header{
     text-shadow: var(--shadow);
 }
 
-header h1{
+.header-index h1{
     margin-left: 35px;
     font-size: 50px;
 }
 
-header p{
+.header-index p{
     margin-left: 35px;
     margin-right: 700px;
     padding: 40px 0;
     font-size: 20px;
 }
 
-header button{
+.header-index button{
     margin-left: 35px;
 }
 
@@ -167,7 +168,7 @@ header button{
 
 /*Section About*/
 
-article{
+.article-index{
     margin: 35px;
     height: 100vh;
     display: flex;
@@ -175,15 +176,15 @@ article{
     justify-content: center;
 }
 
-article .left h1{
+.article-index .left h1{
     font-size: 40px;
 }
 
-article .left p{
+.article-index .left p{
     padding: 30px 0;
 }
 
-article img{
+.article-index img{
     height: 450px;
     width: 500px;
     margin: 35px;
@@ -215,7 +216,7 @@ article img{
     align-items: center;
     flex: 1;
     max-width: 35px;
-    margin: 0 250px;
+    margin: 0 200px;
 }
 
 .star-products .cards .card img{
@@ -273,3 +274,4 @@ footer .footer-left .social a{
 footer .footer-left .social a:hover{
     transform: scale(1.2);
 }
+
