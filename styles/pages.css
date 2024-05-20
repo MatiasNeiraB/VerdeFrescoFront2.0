@@ -1,18 +1,21 @@
-/*PRODUCTS*/
+/*Header*/
 
-.products {
-    padding: 20px;
-    text-align: center;
-  }
+header{
+  background-image: url("../assets/img/header.png");
+  background-size: auto;
+  border-bottom: #333;
+}
+
+header h1{
+  padding: 80px 0 10px 35px;
+  color: var(--background-color);
+  text-shadow: var(--shadow);
+}
+
+/*PRODUCTS*/
   
-  .products h1 {
-    margin-top: 60px;
-    margin-bottom: 40px;
-    text-shadow: var(--shadow);
-    font-size: 50px;
-  }
-  
-  .products-container {
+  .products{
+    margin: 35px 0;
     display: flex;
     justify-content: center;
     margin-bottom: 70px;
@@ -26,6 +29,7 @@
   
   .product {
     text-align: center;
+    margin: 30px;
   }
   
   .product img {
@@ -44,18 +48,9 @@
     margin-bottom: 10px;
   }
   
-  .product button {
-    background-color: var(--main-color);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+
   
-  .product button:hover {
-    background-color: var(--main-color-hoover);
-  }
+ 
   
   /*ABOUT*/
   
@@ -175,3 +170,13 @@
     border-radius: 50px;
     height: auto;
   }
+
+/*BLOG*/
+
+.blog {
+  margin: 35px;    
+}
+
+.blog .blog-article{
+  padding-bottom: 25px;
+}

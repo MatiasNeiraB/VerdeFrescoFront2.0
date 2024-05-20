@@ -264,23 +264,3 @@ footer .footer-left .social a:hover {
     transform: scale(1.2);
 }
 
-/*BLOG*/
-.header-blog{
-    background-image: url("./assets/img/header-blog.png");
-    background-size: auto;
-}
-
-.header-blog h1{
-    padding: 80px 0 10px 35px;
-    color: var(--background-color);
-    text-shadow: var(--shadow);
-}
-
-
-.blog {
-    margin: 35px;    
-}
-
-.blog .blog-article{
-    padding-bottom: 25px;
-}
