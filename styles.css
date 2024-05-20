@@ -313,6 +313,24 @@ footer .footer-left .social a:hover {
     margin: 50px 0px;
     text-align: center;
 }
+.input-register {
+    position: relative;
+    margin: 30px 0px;
+    width: 300px;
+    border-bottom: 2px solid black;
+}
+
+.input-register input {
+    width: 400px;
+}
+
+#errorPassword{
+    display: none;
+}
+
+#errorEmail{
+    display: none;
+}
 
 .input-login {
     position: relative;
@@ -324,7 +342,7 @@ footer .footer-left .social a:hover {
 .input-login label {
     position: absolute;
     top: 50%;
-    left: 5px;
+    left: 1px;
     transform: translateY(-50%);
     color: black;
     font-size: 1rem;
@@ -344,6 +362,7 @@ footer .footer-left .social a:hover {
 
 .input-login input {
     background-color: transparent;
+    width: 300px;
     border: none;
     outline: none;
 }
@@ -351,6 +370,7 @@ footer .footer-left .social a:hover {
 .input-login i {
     position: absolute;
     right: 5px;
+    top: 3px;
 }
 
 .btn-login {
@@ -418,7 +438,7 @@ footer .footer-left .social a:hover {
 }
 
 .input-register input {
-    width: 400px;
+    width: 300px;
 }
 
 .input-register label {
@@ -467,7 +487,7 @@ footer .footer-left .social a:hover {
     .block-register {
         width: 370px;
         border-radius: 70px;
-        height: 500px;
+        height: 550px;
         display: flex;
         justify-content: center;
         align-items: center;

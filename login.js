@@ -14,13 +14,16 @@ function loginCheck(event) {
                 mostrarCarga();
                 setTimeout(ocultarCarga, 1200);
             } else {
+                errorPassword()
                 console.log("Contraseña incorrecta.");
             }
         } else {
             console.log("El email es incorrecto.");
+            errorEmail();
         }
     } else {
-        console.log("El mail no contiene @.");
+       
+        errorEmail();
     }
 }
 
@@ -31,4 +34,22 @@ function mostrarCarga() {
 function ocultarCarga() {
     document.getElementById("loading").style.display = "none";
     window.location.href = "http://127.0.0.1:5500/index.html";
+}
+
+function errorEmail() {
+    let logEmail = document.getElementById('logEmail');
+    let errorEmail = document.getElementById('errorEmail');
+    if (logEmail) {
+        logEmail.style.display = 'none';
+        errorEmail.style.display = 'block'
+    }
+}
+
+function errorPassword() {
+    let logPassword = document.getElementById('logPassword');
+    let errorPassword = document.getElementById('errorPassword');
+    if (logPassword) {
+        logPassword.style.display = 'none';
+        errorPassword.style.display = 'block'
+    }
 }
