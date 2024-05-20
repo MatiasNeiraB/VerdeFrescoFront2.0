@@ -3,69 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto</title>
+    <link rel="icon" href="./assets/img/logo.ico" type="image/ico">
+    <title>Verde Fresco</title>
+
+    <!-- CSS & Js -->
     <link rel="stylesheet" href="./styles.css">
     <script src="index.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
-<body class="home">
+<body>
     <nav id="navbar">
-        <img src="" alt="">
-        <ul>
-            <li>PRODUCTOS</li>
-            <li>NOSOTROS</li>
-            <li>BLOG</li>
-            <li>CONTACTO</li>
-        </ul>
-        <button>Ingresar</button>
+        <div class="navbar-left">
+            <a href="/index.html"><img src="./assets/img/logo.png" alt="verde-fresco"></a>
+        </div>
+        <div class="navbar-middle">
+            <a href="/pages/products.html">PRODUCTOS</a>
+            <a href="/pages/about.html">NOSOTROS</a>
+            <a href="/pages/blog.html">BLOG</a>
+            <a href="/pages/contact.html">CONTACTO</a>
+        </div>
+        <div class="navbar-right">
+            <a href="./pages/login.html"><i class="fa-solid fa-user"></i></a>
+            <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
     </nav>
     <header>
-        <h1>HOJA VERDE</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br> Deserunt incidunt officiis ullam est labore, culpa sint necessitatibus commodi velit ipsa enim ducimus aspernatur totam a quam. <br> Et accusantium hic ad. Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, expedita soluta consequuntur ducimus inventore qui asperiores? <br> Vero provident omnis quidem sed, animi, aliquid, id facilis dolore laborum consectetur maxime voluptates.</p>
+        <h1>VERDE FRESCO</h1>
+        <p>Descubre la frescura del campo con nuestra selección de productos de calidad !</p>
         <button>Comprar</button>
     </header>
-    <section>
-        <div>
-            <h1></h1>
-            <p></p>
-            <button>Boton</button>
+
+    <article>
+        <div class="left">
+            <h1>Nuestra Misión</h1>
+            <p>En Verde Fresco, nos apasiona conectar a las personas con alimentos frescos y de calidad directamente desde el campo.
+                <br>Trabajamos con agricultores locales comprometidos con la sostenibilidad para ofrecerte una selección cuidadosamente seleccionada de productos frescos
+            </p>
+            <button>Nosotros</button>
+
         </div>
         <div>
-            <img src="" alt="">
+            <img src="./assets/img/huerta.png" alt="">
         </div>
-    </section>
-    <section>
-        <h1></h1>
-        <div>
-            <div>
-                <img src="" alt="">
-                <button>Boton</button>
+
+    </article>
+    <section class="star-products">
+        <h1>Productos Estrella</h1>
+        <div class="cards">
+            <div class="card">
+                <img src="./assets/img/product1.png" alt="">
+                <button>Agregar al Carrito</button>
             </div>
-            <div>
-                <img src="" alt="">
-                <button>Boton</button>
+            <div class="card">
+                <img src="./assets/img/product2.png" alt="">
+                <button>Agregar al Carrito</button>
             </div>
-            <div>
-                <img src="" alt="">
-                <button>Boton</button>
+            <div class="card">
+                <img src="./assets/img/product3.png" alt="">
+                <button>Agregar al Carrito</button>
+
             </div>
         </div>
     </section>
     <footer>
-        <div>
-            <h1></h1>
+        <div class="footer-left">
+            <h1>CONTACTO</h1>
             <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+                <li>0800-1234-5678</li>
+                <li>mail.123@gmail.com</li>
+                <li>Ciudad, Provincia, País</li>
             </ul>
+            <div class="social">
+                <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.whatsapp.com" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
         </div>
-        <div>MAPA</div>
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d47708.21977049014!2d-64.31378227504969!3d-32.979601891496095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1712239115120!5m2!1ses-419!2sar" width="300" height="225" style="border-radius:25px; border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </footer>
-
 </body>
 </html>
