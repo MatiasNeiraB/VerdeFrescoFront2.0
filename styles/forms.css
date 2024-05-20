@@ -64,11 +64,11 @@
     width: 400px;
 }
 
-#errorPassword{
+#errorPassword {
     display: none;
 }
 
-#errorEmail{
+#errorEmail {
     display: none;
 }
 
@@ -304,4 +304,8 @@
     100% {
         transform: translate(-50%, -50%) rotate(360deg);
     }
+}
+
+.btn-close{
+    background-color: red;
 }

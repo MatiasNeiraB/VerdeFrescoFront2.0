@@ -22,7 +22,7 @@ function loginCheck(event) {
             errorEmail();
         }
     } else {
-       
+
         errorEmail();
     }
 }
