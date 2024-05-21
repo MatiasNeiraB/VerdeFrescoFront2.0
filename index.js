@@ -9,6 +9,7 @@ window.addEventListener('scroll', function () {
   }
 });
 
+
 /*CARROUSELL*/
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
 /*USER NAME*/
 
 function nameUser() {
@@ -55,3 +57,53 @@ function nameUser() {
     nameUser.textContent = nameLS;
   } 
 }
+
+
+/*CARRITO*/
+
+/*Agregar productos al carrito*/
+
+document.addEventListener('DOMContentLoaded', () => {
+  const updateCartItemCount = () => {
+    const cartItemCountElement = document.getElementById('cartItemCount');
+    // Recupero el carrito del localStorage
+    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    // Calcular el número total de artículos en el carrito
+    const totalItems = Object.values(cart).reduce((acc, curr) => acc + curr, 0);
+    // Actualizar el contenido del elemento con el número total de artículos
+    cartItemCountElement.textContent = totalItems;
+  };
+
+  const addToCart = (event) => {
+    const productId = event.target.closest('.product').dataset.productId;
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    cart[productId] = (cart[productId] || 0) + 1;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartItemCount();
+  };
+
+  const buyButtons = document.querySelectorAll('.buy-button');
+  buyButtons.forEach(button => {
+    button.addEventListener('click', addToCart);
+  });
+
+  updateCartItemCount();
+});
+
+/*Agregar cantidad en la barra de navegacion*/
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Actualizar el número de artículos en el carrito
+  const updateCartItemCount = () => {
+      const cartItemCountElement = document.getElementById('cartItemCount');
+      // Recuperar el carrito del localStorage
+      const cart = JSON.parse(localStorage.getItem('cart')) || {};
+      // Calcular el número total de artículos en el carrito
+      const totalItems = Object.values(cart).reduce((acc, curr) => acc + curr, 0);
+      // Actualizar el contenido del elemento con el número total de artículos
+      cartItemCountElement.textContent = totalItems;
+  };
+
+  // Llamar a la función para actualizar el número de artículos al cargar la página
+  updateCartItemCount();
+});

@@ -185,5 +185,20 @@ header h1{
 }
 
 .blog .blog-article{
-  padding-bottom: 25px;
+  display: flex;
+  gap: 50px;
+}
+
+.blog .blog-article .blog-left img{
+  height: 100px;
+  box-shadow: var(--shadow);
+}
+
+.blog hr{
+  margin: 30px 0;
+  height: 2px;
+  background-color: var(--dark-background-color);
+  border-radius: 80px;
+  border: none;
+  box-shadow: var(--shadow);
 }

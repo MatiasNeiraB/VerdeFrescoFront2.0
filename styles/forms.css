@@ -1,6 +1,6 @@
 /*Login*/
 
-.nav-login {
+/*.nav-login {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -24,7 +24,7 @@
 
 .nav-login img {
     height: 45px;
-}
+}*/
 
 .login {
     display: flex;
@@ -50,9 +50,11 @@
     justify-content: center;
     align-items: center;
     background-color: var(--main-color-hoover);
+    box-shadow: var(--shadow);
     margin: 80px 0px;
     text-align: center;
 }
+
 .input-register {
     position: relative;
     margin: 30px 0px;
@@ -153,6 +155,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--main-color-hoover);
+    box-shadow: var(--shadow);
     margin: 70px 0px;
     text-align: center;
 }
@@ -310,6 +313,9 @@
     background-color: red;
 }
 
+
+/*Contact*/
+
 .block-contacto {
     position: relative;
     width: 400px;
@@ -320,9 +326,10 @@
     justify-content: center;
     align-items: center;
     background-color: var(--main-color-hoover);
+    box-shadow: var(--shadow);
     margin: 100px 0px;
     text-align: center;
-    padding: 40px 0px;
+    padding: 30px 30px;
 }
 
 .contacto {

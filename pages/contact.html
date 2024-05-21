@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/img/logo.ico" type="image/ico">
-    <title>Verde Fresco</title>
+    <link rel="icon" href="../assets/img/logo.ico" type="image/ico">
+    <title>Verde Fresco - Contacto</title>
 
     <!-- CSS & Js -->
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles/pages.css">
     <link rel="stylesheet" href="../styles/forms.css">
     <script src="/contact.js"></script>
+    <script src="/index.js"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,11 +28,25 @@
 
 <body>
 
+    <nav id="navbar">
+        <div class="navbar-left">
+            <a href="/index.html"><img src="../assets/img/logo.png" alt="verde-fresco"></a>
+        </div>
+        <div class="navbar-middle">
+            <a href="./products.html">PRODUCTOS</a>
+            <a href="./about.html">NOSOTROS</a>
+            <a href="blog.html">BLOG</a>
+            <a href="./contact.html">CONTACTO</a>
+        </div>
+        <div class="navbar-right">
+            <a href="login.html"><i class="fa-solid fa-user"></i></a>
+            <a href="#" id="cartIcon"><i class="fa-solid fa-cart-shopping"></i> <span id="cartItemCount">0</span></a>
+        </div>
+    </nav>
 
-
-    <div class="nav-login navbar-middle">
-        <a href="../index.html"><img src="../assets/img/logo.png" alt="verde-fresco">VERDE FRESCO</a>
-    </div>
+    <header>
+        <h1>Contactanos</h1>
+    </header>
 
     <section class="register">
         <div class="block-contacto">
@@ -50,7 +66,7 @@
                     <label for="email">Email</label><i id="logEmail" class="fa-solid fa-envelope"></i>  
                     <i id="errorEmail" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 </div>
-                <h3>Consulta</h3>
+                <h3>Mensaje</h3>
                 <div class="input-textarea ">
                     <textarea name="" id="" required></textarea>
                 </div>
@@ -60,7 +76,6 @@
             </form>
         </div>
     </section>
-
 
 
     <footer>

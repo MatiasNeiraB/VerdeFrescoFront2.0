@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <link rel="icon" href="../assets/img/logo.ico" type="image/ico">
+    <title>Verde Fresco - Blog</title>
 
     <!-- CSS & Js -->
     <link rel="stylesheet" href="../styles.css">
@@ -25,14 +26,14 @@
             <a href="/index.html"><img src="../assets/img/logo.png" alt="verde-fresco"></a>
         </div>
         <div class="navbar-middle">
-            <a href="/pages/products.html">PRODUCTOS</a>
-            <a href="/pages/about.html">NOSOTROS</a>
-            <a href="/pages/blog.html">BLOG</a>
-            <a href="/pages/contact.html">CONTACTO</a>
+            <a href="./products.html">PRODUCTOS</a>
+            <a href="./about.html">NOSOTROS</a>
+            <a href="blog.html">BLOG</a>
+            <a href="./contact.html">CONTACTO</a>
         </div>
         <div class="navbar-right">
-            <a href=""><i class="fa-solid fa-user"></i></a>
-            <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="login.html"><i class="fa-solid fa-user"></i></a>
+            <a href="#" id="cartIcon"><i class="fa-solid fa-cart-shopping"></i> <span id="cartItemCount">0</span></a>
         </div>
     </nav>
 
@@ -42,29 +43,65 @@
 
     <section class="blog">
         <article class="blog-article">
-            <h2>Nueva cosecha de tomates orgánicos:</h2>
-            <p>Verde Fresco celebra la llegada de una nueva cosecha de tomates orgánicos, cultivados con cuidado y amor en nuestros campos. <br> ¡Disponibles ahora en nuestra tienda!</p>
+            <div class="blog-left">
+                <img src="../assets/img/product-tomatoe.png" alt="">
+            </div>
+            <div class="blog-right">
+                <h2>Nueva cosecha de tomates orgánicos:</h2>
+                <p>Verde Fresco celebra la llegada de una nueva cosecha de tomates orgánicos, cultivados con cuidado y amor en nuestros campos. <br> ¡Disponibles ahora en nuestra tienda!</p>
+            </div>
         </article>
+        <hr>
         <article class="blog-article">
-            <h2>Aumenta la demanda de productos frescos:</h2>
-            <p>Con un enfoque en la salud y la sostenibilidad, los consumidores están optando cada vez más por productos frescos del campo como los que ofrece Verde Fresco. <br>¡Únete a la tendencia y disfruta de lo mejor de la naturaleza!</p>
+            <div class="blog-left">
+                <img src="../assets/img/fruit1.png" alt="">
+            </div>
+            <div class="blog-right">
+                <h2>Aumenta la demanda de productos frescos:</h2>
+                <p>Con un enfoque en la salud y la sostenibilidad, los consumidores están optando cada vez más por productos frescos del campo como los que ofrece Verde Fresco. <br>¡Únete a la tendencia y disfruta de lo mejor de la naturaleza!</p>
+            </div>
         </article>
+        <hr>
         <article class="blog-article">
-            <h2>Expansión de la línea de productos:</h2>
-            <p>Verde Fresco anuncia la expansión de su línea de productos con la incorporación de nuevas frutas y verduras de temporada. <br>Descubre nuestras últimas incorporaciones y sorpréndete con su frescura y sabor incomparables.</p>
+            <div class="blog-left">
+                <img src="../assets/img/fruit2.png" alt="">
+            </div>
+            <div class="blog-left">
+                <h2>Expansión de la línea de productos:</h2>
+                <p>Verde Fresco anuncia la expansión de su línea de productos con la incorporación de nuevas frutas y verduras de temporada. <br>Descubre nuestras últimas incorporaciones y sorpréndete con su frescura y sabor incomparables.</p>
+            </div>
         </article>
+        <hr>
         <article class="blog-article">
-            <h2>Apoyo a agricultores locales:</h2>
-            <p>En Verde Fresco, creemos en el poder de apoyar a nuestros agricultores locales y en promover prácticas agrícolas sostenibles. Es por eso que estamos comprometidos en ampliar nuestra red de proveedores locales, asegurándonos de que cada producto que llega a tu mesa provenga de fuentes confiables y éticas. <br>Cada compra que realizas en Verde Fresco no solo te brinda productos frescos y deliciosos, sino que también contribuye al crecimiento y desarrollo de nuestras comunidades agrícolas locales.</p>
+            <div class="blog-left">
+                <img src="../assets/img/fruit3.png" alt="">
+            </div>
+            <div class="blog-left">
+                <h2>Apoyo a agricultores locales:</h2>
+                <p>En Verde Fresco, creemos en el poder de apoyar a nuestros agricultores locales y en promover prácticas agrícolas sostenibles. Es por eso que estamos comprometidos en ampliar nuestra red de proveedores locales, asegurándonos de que cada producto que llega a tu mesa provenga de fuentes confiables y éticas. <br>Cada compra que realizas en Verde Fresco no solo te brinda productos frescos y deliciosos, sino que también contribuye al crecimiento y desarrollo de nuestras comunidades agrícolas locales.</p>
+            </div>
         </article>
+        <hr>
         <article class="blog-article">
-            <h2>Consejos para cultivar tu propio huerto:</h2>
-            <p>¿Quieres iniciarte en la jardinería en casa? Aquí tienes algunos consejos prácticos para empezar: elige un lugar soleado, prepara bien el suelo, selecciona cultivos adecuados para tu clima, riega con moderación, controla las plagas y enfermedades y cosecha en el momento adecuado.</p>
+            <div class="blog-left">
+                <img src="../assets/img/product-apio.png" alt="">
+            </div>
+            <div class="blog-left">
+                <h2>Consejos para cultivar tu propio huerto:</h2>
+                <p>¿Quieres iniciarte en la jardinería en casa? Aquí tienes algunos consejos prácticos para empezar: elige un lugar soleado, prepara bien el suelo, selecciona cultivos adecuados para tu clima, riega con moderación, controla las plagas y enfermedades y cosecha en el momento adecuado.</p>
+            </div>
         </article>
+        <hr>
         <article class="blog-article">
-            <h2>Eventos y ferias agrícolas locales:</h2>
-            <p>Sumérgete en el mundo agrícola local participando en eventos y ferias. Descubre productos frescos, conoce a agricultores locales y disfruta de actividades divertidas para toda la familia. <br>No te pierdas estas oportunidades para apoyar la agricultura sostenible y conectar con tu comunidad.</p>
+            <div class="blog-left">
+                <img src="../assets/img/product-raspberry.png" alt="">
+            </div>
+            <div class="blog-left">
+                <h2>Eventos y ferias agrícolas locales:</h2>
+                <p>Sumérgete en el mundo agrícola local participando en eventos y ferias. Descubre productos frescos, conoce a agricultores locales y disfruta de actividades divertidas para toda la familia. <br>No te pierdas estas oportunidades para apoyar la agricultura sostenible y conectar con tu comunidad.</p>
+            </div>
         </article>
+        <hr>
         
     </section>
 
