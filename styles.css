@@ -1,7 +1,7 @@
 :root {
     /*Color Principal*/
 
-    --main-color: #65b741;
+    --main-color: #51a72d;
     --main-color-hoover: #c5ebaa;
 
     /*Color Secundario*/
@@ -69,6 +69,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     filter: drop-shadow(var(--shadow));
+    z-index: 1000;
 }
 
 nav.scrolling {
@@ -138,8 +139,8 @@ nav .navbar-right a:hover {
 
 .header-index{
     height: 100vh;
-    background-image: url("./assets/img/home.png");
-    background-size: contain;
+    background-image: url("./assets/img/header.png");
+    
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -236,7 +237,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 300px;
-    background-color: var(--main-color);
+    background-image: url('./assets/img/header.png');
     color: var(--background-color);
     text-shadow: var(--shadow);
 }
