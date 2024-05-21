@@ -17,6 +17,15 @@
         crossorigin="anonymous"></script>
     <script src="/index.js"></script>
     <script src="/login.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "jtGnfepFWdNEqCZu4",
+            });
+        })();
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,14 +78,14 @@
                                             <div class="mb-3">
                                                 <label for="recipient-name" class="col-form-label">Correo
                                                     Electrónico:</label>
-                                                <input type="email" class="form-control" id="recipient-name">
+                                                <input type="email" id="emailPassword" class="form-control" id="recipient-name">
                                             </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer ">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Cerrar</button>
-                                        <button type="button" data-bs-dismiss="modal"
+                                        <button type="button" onclick="mailPassword()" data-bs-dismiss="modal"
                                             class="btn btn-success">Enviar</button>
                                     </div>
                                 </div>
@@ -99,7 +108,7 @@
             <h1>CONTACTO</h1>
             <ul>
                 <li>0800-1234-5678</li>
-                <li>mail.123@gmail.com</li>
+                <li>verdefrescobusiness@gmail.com</li>
                 <li>Ciudad, Provincia, País</li>
             </ul>
             <div class="social">

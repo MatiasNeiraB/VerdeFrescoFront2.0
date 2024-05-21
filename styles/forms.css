@@ -50,7 +50,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--main-color-hoover);
-    margin: 50px 0px;
+    margin: 80px 0px;
     text-align: center;
 }
 .input-register {
@@ -148,12 +148,12 @@
     width: 400px;
     border: transparent;
     border-radius: 70px;
-    height: 500px;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--main-color-hoover);
-    margin: 50px 0px;
+    margin: 70px 0px;
     text-align: center;
 }
 
@@ -308,4 +308,35 @@
 
 .btn-close{
     background-color: red;
+}
+
+.block-contacto {
+    position: relative;
+    width: 400px;
+    border: transparent;
+    border-radius: 70px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color-hoover);
+    margin: 100px 0px;
+    text-align: center;
+    padding: 40px 0px;
+}
+
+.contacto {
+    display: flex;
+    justify-content: center;
+}
+
+.input-textarea {
+    position: relative;
+    margin: 10px 0px;
+}
+
+.input-textarea textarea {
+    width: 300px;
+    height: 150px;
+    border-radius: 10px;
 }
