@@ -22,6 +22,7 @@ function RegisterCheck(event) {
         };
         const userJSON = JSON.stringify(users);
         localStorage.setItem("users", userJSON);
+        mailRegister();
         setTimeout(ocultarCarga, 1200);
     } else {
         console.log("Las contraseñas no son iguales.");
@@ -36,4 +37,23 @@ function ocultarCarga() {
     document.getElementById("loading").style.display = "none";
     window.location.href = "http://127.0.0.1:5500/index.html";
     console.log("ENTRASTE");
+}
+
+function mailRegister() {
+    let userLS = JSON.parse(localStorage.getItem('users'));
+    let nameLS = userLS.name;
+    let emailLS = userLS.email;
+    var templateParams = {
+        userName: nameLS,
+        destinatario: emailLS,
+    };
+
+    emailjs.send('service_nc9bzlp', 'template_jiemk57', templateParams).then(
+        (response) => {
+            console.log('SUCCESS!', response.status, response.text);
+        },
+        (error) => {
+            console.log('FAILED...', error);
+        },
+    );
 }

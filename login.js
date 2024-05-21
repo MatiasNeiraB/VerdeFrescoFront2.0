@@ -53,3 +53,20 @@ function errorPassword() {
         errorPassword.style.display = 'block'
     }
 }
+
+function mailPassword() {
+    let emailValue = document.getElementById('emailPassword').value;
+    var templateParams = {
+        destinatario: emailValue,
+        message: 'Para continuar con el proceso, por favor acceda al siguiente enlace:'
+    };
+
+    emailjs.send('service_nc9bzlp', 'template_ovfbtir', templateParams).then(
+        (response) => {
+            console.log('SUCCESS!', response.status, response.text);
+        },
+        (error) => {
+            console.log('FAILED...', error);
+        },
+    )
+}
