@@ -1,0 +1,342 @@
+/*Login*/
+
+.nav-login {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    background-color: var(--main-color);
+    align-items: center;
+    font-style: "Open Sans", sans-serif;
+}
+
+.nav-login a {
+    padding: 1px;
+    color: var(--background-color);
+    text-shadow: var(--shadow);
+    text-decoration: none;
+    transition: 1s ease;
+    font-size: 20px;
+}
+.nav-login a:hover {
+    transform: scale(1.1);
+}
+
+.nav-login img {
+    height: 45px;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+}
+
+.block-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.block-login {
+    position: relative;
+    width: 400px;
+    border: transparent;
+    border-radius: 70px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color-hoover);
+    margin: 80px 0px;
+    text-align: center;
+}
+.input-register {
+    position: relative;
+    margin: 30px 0px;
+    width: 300px;
+    border-bottom: 2px solid black;
+}
+
+.input-register input {
+    width: 400px;
+}
+
+#errorPassword {
+    display: none;
+}
+
+#errorEmail {
+    display: none;
+}
+
+.input-login {
+    position: relative;
+    margin: 30px 0px;
+    width: 300px;
+    border-bottom: 2px solid black;
+}
+
+.input-login label {
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 1rem;
+    transition: 0.5s;
+}
+
+.input-login input:focus ~ label,
+.input-login input:valid ~ label {
+    top: -5px;
+    color: transparent;
+    outline: none;
+}
+
+.input-login input:focus {
+    outline: none;
+}
+
+.input-login input {
+    background-color: transparent;
+    width: 300px;
+    border: none;
+    outline: none;
+}
+
+.input-login i {
+    position: absolute;
+    right: 5px;
+    top: 3px;
+}
+
+.btn-login {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.forget-password {
+    display: flex;
+    justify-content: center;
+}
+
+.forget-password a {
+    text-decoration: none;
+}
+
+.forget-password a:hover {
+    text-decoration: underline;
+}
+
+/*Register*/
+
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.block-register {
+    position: relative;
+    width: 400px;
+    border: transparent;
+    border-radius: 70px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color-hoover);
+    margin: 70px 0px;
+    text-align: center;
+}
+
+.register {
+    display: flex;
+    justify-content: center;
+}
+
+.register a {
+    text-decoration: none;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}
+
+.input-register {
+    position: relative;
+    margin: 30px 0px;
+    width: 300px;
+    border-bottom: 2px solid black;
+}
+
+.input-register input {
+    width: 300px;
+}
+
+.input-register label {
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 1rem;
+    transition: 0.5s;
+}
+
+.name-register {
+    display: flex;
+}
+.name-register input {
+    width: 50%;
+}
+
+.name-register input {
+    border-style: none;
+    background-color: transparent;
+}
+
+.input-register input {
+    border-style: none;
+    background-color: transparent;
+}
+
+.input-register i {
+    position: absolute;
+    right: 5px;
+    top: 3px;
+}
+
+.input-register input:focus ~ label,
+.input-register input:valid ~ label {
+    top: -5px;
+}
+
+.input-register input:focus {
+    outline: none;
+}
+
+@media (max-width: 450px) {
+    .block-register {
+        width: 370px;
+        border-radius: 70px;
+        height: 550px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--main-color-hoover);
+        margin: 50px 0px;
+        pointer-events: painted;
+    }
+}
+
+@media (max-width: 450px) {
+    .input-register {
+        position: relative;
+        margin: 30px 0px;
+        width: 300px;
+        border-bottom: 2px solid black;
+        left: 25x;
+    }
+}
+
+@media (max-width: 450px) {
+    footer iframe {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    footer .footer-left {
+        align-items: center;
+        list-style: none;
+    }
+}
+
+@media (max-width: 450px) {
+    footer {
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0px;
+        background-color: var(--main-color);
+        color: var(--background-color);
+        text-shadow: var(--shadow);
+    }
+}
+
+#loading {
+    display: none; /* Ocultar inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
+    z-index: 9999; /* Asegurarse de que esté por encima de otros elementos */
+}
+
+#loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 5px solid #f3f3f3; /* Círculo exterior */
+    border-top: 5px solid #3498db; /* Círculo interior */
+    border-radius: 50%;
+    animation: spin 2s linear infinite; /* Animación de rotación */
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.btn-close{
+    background-color: red;
+}
+
+.block-contacto {
+    position: relative;
+    width: 400px;
+    border: transparent;
+    border-radius: 70px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color-hoover);
+    margin: 100px 0px;
+    text-align: center;
+    padding: 40px 0px;
+}
+
+.contacto {
+    display: flex;
+    justify-content: center;
+}
+
+.input-textarea {
+    position: relative;
+    margin: 10px 0px;
+}
+
+.input-textarea textarea {
+    width: 300px;
+    height: 150px;
+    border-radius: 10px;
+}

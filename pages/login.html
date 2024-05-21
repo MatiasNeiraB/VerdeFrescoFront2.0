@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/logo.ico" type="image/ico">
+    <title>Verde Fresco</title>
+
+    <!-- CSS & Js -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles/forms.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="/index.js"></script>
+    <script src="/login.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "jtGnfepFWdNEqCZu4",
+            });
+        })();
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="nav-login navbar-middle">
+        <a href="../index.html"><img src="../assets/img/logo.png" alt="verde-fresco">VERDE FRESCO</a>
+    </div>
+
+    <section class="login">
+        <div class="block-login">
+            <div>
+                <form>
+                    <h2>Iniciar Sesión</h2>
+                    <div id="loading"></div>
+                    <div class="input-login">
+                        <input type="text" id="email" name="email" required>
+                        <label for="email">Email</label><i id="logEmail" class="fa-solid fa-envelope"></i> <i
+                            id="errorEmail" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    </div>
+                    <div class="input-login">
+                        <input type="password" id="password" name="password" required>
+                        <label for="password">Contraseña</label><i id="logPassword" class="fa-solid fa-lock"></i> <i
+                            id="errorPassword" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    </div>
+                    <div class="forget-password">
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" href="">Olvidé
+                            la contraseña.</a>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content ">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Recuperar Contraseña</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="recipient-name" class="col-form-label">Correo
+                                                    Electrónico:</label>
+                                                <input type="email" id="emailPassword" class="form-control" id="recipient-name">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer ">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="button" onclick="mailPassword()" data-bs-dismiss="modal"
+                                            class="btn btn-success">Enviar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-login">
+                        <button type="submit" onclick="loginCheck(event)">Entrar</button>
+                    </div>
+                </form>
+                <div class="register">No tenes cuenta? <a href="./register.html">Registrate.</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-left">
+            <h1>CONTACTO</h1>
+            <ul>
+                <li>0800-1234-5678</li>
+                <li>verdefrescobusiness@gmail.com</li>
+                <li>Ciudad, Provincia, País</li>
+            </ul>
+            <div class="social">
+                <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.whatsapp.com" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d47708.21977049014!2d-64.31378227504969!3d-32.979601891496095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1712239115120!5m2!1ses-419!2sar"
+                width="300" height="225" style="border-radius:25px; border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </footer>
+
+</body>
+
+</html>

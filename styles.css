@@ -1,0 +1,266 @@
+:root {
+    /*Color Principal*/
+
+    --main-color: #65b741;
+    --main-color-hoover: #c5ebaa;
+
+    /*Color Secundario*/
+    --sec-color: #ff9843;
+    --sec-color-hoover: #f2c18d;
+
+
+    /*Color Background*/
+    --background-color: #fbf6ee;
+    --dark-background-color: #114232;
+
+    /*Shadow*/
+    --shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.7);
+
+    /*Scrollbar*/
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    font-family: "Open Sans", sans-serif;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    background-color: var(--background-color);
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 40px;
+    
+}
+
+button {
+    width: 120px;
+    background-color: var(--main-color);
+    border-radius: 50px;
+    border-style: none;
+    padding: 10px;
+    box-shadow: var(--shadow);
+
+    color: var(--background-color);
+    text-shadow: var(--shadow);
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 1s ease;
+}
+
+button:hover {
+    background-color: var(--main-color-hoover);
+}
+
+/*Nav*/
+
+nav {
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    position: fixed;
+    color: var(--background-color);
+    align-items: center;
+    justify-content: space-between;
+    filter: drop-shadow(var(--shadow));
+}
+
+nav.scrolling {
+    background-color: var(--main-color);
+    transition: 0.5s ease;
+}
+
+/*Navbar Logo*/
+nav .navbar-left {
+    margin-left: 35px;
+    width: 15%;
+    height: 100%;
+    text-shadow: var(--shadow);
+    justify-content: center;
+    align-items: center;
+}
+
+nav .navbar-left a img {
+    padding: 10px 0 0 0;
+    height: 70%;
+    width: auto;
+    filter: drop-shadow(var(--shadow));
+}
+
+/*Navbar Links*/
+nav .navbar-middle {
+    width: auto;
+    display: flex;
+    list-style-type: none;
+}
+
+nav .navbar-middle a {
+    padding: 10px;
+    color: var(--background-color);
+    text-shadow: var(--shadow);
+    text-decoration: none;
+    transition: 1s ease;
+    font-size: 20px;
+}
+
+nav .navbar-middle a:hover {
+    transform: scale(1.1);
+}
+
+/*Navbar Icons*/
+nav .navbar-right {
+    width: 15%;
+    text-shadow: var(--shadow);
+}
+
+nav .navbar-right a {
+    padding: 15px;
+    font-size: 25px;
+    color: var(--sec-color);
+    text-decoration: none;
+    transition: 1s ease;
+}
+
+nav .navbar-right a:hover {
+    color: var(--sec-color-hoover);
+}
+
+
+/*INDEX*/
+
+/*Header*/
+
+.header-index{
+    height: 100vh;
+    background-image: url("./assets/img/home.png");
+    background-size: contain;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    /*Text*/
+    color: var(--background-color);
+    text-shadow: var(--shadow);
+}
+
+.header-index h1{
+    margin-left: 35px;
+    font-size: 50px;
+}
+
+.header-index p{
+    margin-left: 35px;
+    margin-right: 700px;
+    padding: 40px 0;
+    font-size: 20px;
+}
+
+.header-index button{
+    margin-left: 35px;
+}
+
+/*Section About*/
+
+.article-index{
+    margin: 35px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.article-index .left h1{
+    font-size: 40px;
+}
+
+.article-index .left p{
+    padding: 30px 0;
+}
+
+.article-index img{
+    height: 450px;
+    width: 500px;
+    margin: 35px;
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+}
+
+/*Section Star Products*/
+
+.star-products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+
+.star-products .cards {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.star-products .cards .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 35px;
+    margin: 0 200px;
+}
+
+.star-products .cards .card img {
+    width: 250px;
+    height: 250px;
+    border-radius: 25%;
+    box-shadow: var(--shadow);
+}
+
+.star-products .cards .card button {
+    width: 150px;
+    margin-top: 50px;
+}
+
+/*Footer*/
+
+footer {
+    padding: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 300px;
+    background-color: var(--main-color);
+    color: var(--background-color);
+    text-shadow: var(--shadow);
+}
+
+footer .footer-left {
+    height: 225px;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+footer .footer-left .social {
+    display: flex;
+    gap: 40px;
+}
+
+footer .footer-left .social a {
+    font-size: 45px;
+    text-shadow: var(--shadow);
+    color: var(--background-color);
+    transition: 1s;
+}
+
+footer .footer-left .social a:hover {
+    transform: scale(1.2);
+}
+
