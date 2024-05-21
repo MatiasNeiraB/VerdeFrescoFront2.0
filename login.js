@@ -55,12 +55,9 @@ function errorPassword() {
 }
 
 function mailPassword() {
-    let userLS = JSON.parse(localStorage.getItem('users'));
-    let nameLS = userLS.name;
-    let emailLS = userLS.email;
+    let emailValue = document.getElementById('emailPassword').value;
     var templateParams = {
-        userName: nameLS,
-        destinatario: emailLS,
+        destinatario: emailValue,
         message: 'Para continuar con el proceso, por favor acceda al siguiente enlace:'
     };
 
