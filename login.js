@@ -68,5 +68,5 @@ function mailPassword() {
         (error) => {
             console.log('FAILED...', error);
         },
-    );
+    )
 }
