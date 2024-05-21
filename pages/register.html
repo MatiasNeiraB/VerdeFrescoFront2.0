@@ -11,6 +11,15 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../styles/forms.css">
     <script src="../register.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "jtGnfepFWdNEqCZu4",
+            });
+        })();
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +45,7 @@
         <div class="block-register">
             <form onsubmit="RegisterCheck(event)" class="reg">
                 <h2>Crear una cuenta</h2>
-                <div id="loading" ></div>
+                <div id="loading"></div>
                 <div class="input-register ">
                     <input type="text" id="name" name="name" required>
                     <label for="name">Nombre</label>
@@ -62,7 +71,8 @@
                     <label for="password">Repetir contraseña</label><i class="fa-solid fa-lock"></i>
                 </div>
                 <div>
-                    <input type="checkbox" name="conditions" id="register-conditions" required> Acepto los <a href="">términos y
+                    <input type="checkbox" name="conditions" id="register-conditions" required> Acepto los <a
+                        href="">términos y
                         condiciones.</a>
                 </div>
                 <div class="btn-login">
@@ -81,7 +91,7 @@
             <h1>CONTACTO</h1>
             <ul>
                 <li>0800-1234-5678</li>
-                <li>mail.123@gmail.com</li>
+                <li>verdefrescobusiness@gmail.com</li>
                 <li>Ciudad, Provincia, País</li>
             </ul>
             <div class="social">

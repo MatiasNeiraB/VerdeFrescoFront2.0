@@ -309,3 +309,33 @@
 .btn-close{
     background-color: red;
 }
+
+.block-contacto {
+    position: relative;
+    width: 400px;
+    border: transparent;
+    border-radius: 70px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color-hoover);
+    margin: 50px 0px;
+    text-align: center;
+}
+
+.contacto {
+    display: flex;
+    justify-content: center;
+}
+
+.input-textarea {
+    position: relative;
+    margin: 10px 0px;
+}
+
+.input-textarea textarea {
+    width: 300px;
+    height: 150px;
+    border-radius: 10px;
+}
