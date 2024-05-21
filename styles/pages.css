@@ -95,7 +95,7 @@ header h1{
 .about-article {
   display: flex;
   margin-bottom: 50px;
-  background-image: url("../assets/img/bg-orange.png");
+  background-image: url("../assets/img/bg-naranja.png");
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -195,6 +195,32 @@ header h1{
 }
 
 .blog hr{
+  margin: 30px 0;
+  height: 2px;
+  background-color: var(--dark-background-color);
+  border-radius: 80px;
+  border: none;
+  box-shadow: var(--shadow);
+}
+
+/*CARRITO*/
+
+.cart {
+  margin: 35px;    
+}
+
+.cart .cart-article{
+  display: flex;
+  gap: 50px;
+}
+
+.cart .cart-article .cart-left img{
+  height: 100px;
+  width: auto;
+  box-shadow: var(--shadow);
+}
+
+.cart hr{
   margin: 30px 0;
   height: 2px;
   background-color: var(--dark-background-color);
