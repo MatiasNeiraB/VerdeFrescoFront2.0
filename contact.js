@@ -44,4 +44,3 @@ function errorEmail() {
         errorEmail.style.display = 'block'
     }
 }
-
