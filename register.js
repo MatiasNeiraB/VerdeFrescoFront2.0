@@ -1,3 +1,5 @@
+//Register
+
 function RegisterCheck(event) {
     event.preventDefault();
     let emailValue = document.getElementById('email').value;

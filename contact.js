@@ -1,3 +1,4 @@
+//Envio de mail
 function sendContact(event) {
     event.preventDefault();
     let emailValueContact = document.getElementById('emailContact').value;

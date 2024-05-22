@@ -1,3 +1,5 @@
+//Login
+
 function loginCheck(event) {
     event.preventDefault();
     let emailValue = document.getElementById('email').value;

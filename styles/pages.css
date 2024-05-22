@@ -340,6 +340,10 @@ header h1{
   gap: 50px;
 }
 
+.blog .blog-article .blog-right p{
+ margin-top: 5px;
+}
+
 .blog .blog-article .blog-left img{
   height: 100px;
   box-shadow: var(--shadow);

@@ -10,7 +10,7 @@ window.addEventListener('scroll', function () {
 });
 
 
-//CARROUSELL
+//CARROUSEL
 
 document.addEventListener("DOMContentLoaded", function () {
   const carrouselSlide = document.querySelector(".carrousel-slide");
@@ -77,7 +77,7 @@ function nameUser() {
       iconUser.style.display = 'inline';
     }
     nameUser.innerHTML = '';
-    nameUser.href = './pages/login.html';
+    nameUser.href = '/pages/login.html';
     nameUser.innerHTML = '<i id="iconUser" class="fa-solid fa-user"></i>';
   }
 }
