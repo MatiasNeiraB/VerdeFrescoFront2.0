@@ -1,30 +1,4 @@
-/*Login*/
-
-/*.nav-login {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 50px;
-    background-color: var(--main-color);
-    align-items: center;
-    font-style: "Open Sans", sans-serif;
-}
-
-.nav-login a {
-    padding: 1px;
-    color: var(--background-color);
-    text-shadow: var(--shadow);
-    text-decoration: none;
-    transition: 1s ease;
-    font-size: 20px;
-}
-.nav-login a:hover {
-    transform: scale(1.1);
-}
-
-.nav-login img {
-    height: 45px;
-}*/
+/*LOGIN*/
 
 .login {
     display: flex;
@@ -134,7 +108,7 @@
     text-decoration: underline;
 }
 
-/*Register*/
+/*REGISTER*/
 
 .register {
     display: flex;
@@ -250,31 +224,6 @@
     }
 }
 
-@media (max-width: 450px) {
-    footer iframe {
-        display: none;
-    }
-}
-
-@media (max-width: 450px) {
-    footer .footer-left {
-        align-items: center;
-        list-style: none;
-    }
-}
-
-@media (max-width: 450px) {
-    footer {
-        padding: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0px;
-        background-color: var(--main-color);
-        color: var(--background-color);
-        text-shadow: var(--shadow);
-    }
-}
 
 #loading {
     display: none; /* Ocultar inicialmente */
@@ -314,7 +263,7 @@
 }
 
 
-/*Contact*/
+/*CONTACT*/
 
 .block-contacto {
     position: relative;

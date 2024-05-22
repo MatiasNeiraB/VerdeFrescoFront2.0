@@ -49,42 +49,74 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function nameUser() {
   let userLS = JSON.parse(localStorage.getItem('users'));
-  let nameLS = userLS.name;
   let iconUser = document.getElementById('iconUser');
-  if ( iconUser) {
-    iconUser.style.display = 'none';
   let nameUser = document.getElementById('nameUser');
-    nameUser.textContent = nameLS;
-  } 
+
+  if (userLS) {
+    let nameLS = userLS.name;
+    if (iconUser) {
+      iconUser.style.display = 'none';
+    }
+    nameUser.innerHTML = '';
+
+    let userNameText = document.createElement('span');
+    userNameText.id = 'userNameText';
+    userNameText.textContent = nameLS;
+
+    let logoutLink = document.createElement('a');
+    logoutLink.href = '#';
+    logoutLink.id = 'logoutLink';
+    logoutLink.textContent = '- Salir';
+    
+    logoutLink.addEventListener('click', logoutUser);
+
+    nameUser.appendChild(userNameText);
+    nameUser.appendChild(logoutLink);
+  } else {
+    if (iconUser) {
+      iconUser.style.display = 'inline';
+    }
+    nameUser.innerHTML = '';
+    nameUser.href = './pages/login.html';
+    nameUser.innerHTML = '<i id="iconUser" class="fa-solid fa-user"></i>';
+  }
 }
+
+function loginCheck(event) {
+  event.preventDefault();
+  let user = { name: 'NombreUsuario' };
+  localStorage.setItem('users', JSON.stringify(user));
+  window.location.href = '/index.html';
+}
+
+function logoutUser() {
+  localStorage.clear();
+  window.location.href = '/pages/login.html';
+}
+
+document.addEventListener('DOMContentLoaded', nameUser);
+
 
 
 //CARRITO
 
-//Función para actualizar el número de artículos en el carrito
+
 document.addEventListener('DOMContentLoaded', () => {
   const updateCartItemCount = () => {
   const cartItemCountElement = document.getElementById('cartItemCount');
-  
-  //Recuperar el carrito del localStorage
-  const cart = JSON.parse(localStorage.getItem('cart')) || {};
-  
-  //Calcular el número total de artículos en el carrito  
+  const cart = JSON.parse(localStorage.getItem('cart')) || {}; 
   const totalItems = Object.values(cart).reduce((acc, curr) => acc + curr, 0);
   
-  //Actualizar el contenido del elemento con el número total de artículos
   cartItemCountElement.textContent = totalItems;
   };
 
-  // Función para mostrar los productos en el carrito
-const displayCart = () => {
+  const displayCart = () => {
   const cartItemsElement = document.getElementById('cart-items');
-  cartItemsElement.innerHTML = ''; // Limpiar el contenido anterior
+  cartItemsElement.innerHTML = '';
 
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
   let totalAmount = 0;
 
-  //Función para obtener el precio de cada producto
   const getProductPrice = (productId) => {
       const prices = {
           apio: 320,
@@ -109,7 +141,7 @@ const displayCart = () => {
       const productImage = document.createElement('img');
       productImage.src = `../assets/img/product-${productId}.png`;
       productImage.alt = productId;
-      productImage.classList.add('cart-image'); // Nueva clase para las imágenes
+      productImage.classList.add('cart-image');
 
       const productDetails = document.createElement('div');
       productDetails.classList.add('cart-right');
@@ -120,7 +152,6 @@ const displayCart = () => {
       const productQuantity = document.createElement('p');
       productQuantity.textContent = `Cantidad: ${cart[productId]}`;
 
-      // Obtener el precio de cada producto y calcular el total
       const productPrice = document.createElement('p');
       const pricePerItem = getProductPrice(productId);
       const totalProductPrice = pricePerItem * cart[productId];
@@ -132,21 +163,18 @@ const displayCart = () => {
       productDetails.appendChild(productQuantity);
       productDetails.appendChild(productPrice);
 
-      productImageContainer.appendChild(productImage); // Añadir la imagen al contenedor
-      productElement.appendChild(productImageContainer); // Añadir el contenedor al artículo
+      productImageContainer.appendChild(productImage);
+      productElement.appendChild(productImageContainer);
       productElement.appendChild(productDetails);
 
       cartItemsElement.appendChild(productElement);
   }
 
-  // Actualizar el importe total
+  
   document.getElementById('total-amount').textContent = totalAmount.toFixed(2);
 };
 
 
-
-
-  // Función para agregar productos al carrito
   const addToCart = (event) => {
       const productId = event.target.closest('.product').dataset.productId;
       let cart = JSON.parse(localStorage.getItem('cart')) || {};
@@ -157,13 +185,12 @@ const displayCart = () => {
       alert(`${productId} ha sido agregado al carrito.`);
   };
 
-  // Seleccionar todos los botones "Comprar" y agregar el evento click
   const buyButtons = document.querySelectorAll('.buy-button');
   buyButtons.forEach(button => {
     button.addEventListener('click', addToCart);
   });
 
-  // Actualizar el número de artículos y mostrar el carrito al cargar la página
+
   updateCartItemCount();
   displayCart();
 });
