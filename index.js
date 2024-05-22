@@ -1,5 +1,6 @@
 //NAV-BAR
 
+//Cambiar de color de fondo al scrollear en la barra de navegacion
 window.addEventListener('scroll', function () {
   const navbar = document.getElementById('navbar');
   if (window.scrollY > 0) {
@@ -100,23 +101,25 @@ document.addEventListener('DOMContentLoaded', nameUser);
 
 //CARRITO
 
-
 document.addEventListener('DOMContentLoaded', () => {
+  //Actualizar numero en el carrito
   const updateCartItemCount = () => {
   const cartItemCountElement = document.getElementById('cartItemCount');
-  const cart = JSON.parse(localStorage.getItem('cart')) || {}; 
-  const totalItems = Object.values(cart).reduce((acc, curr) => acc + curr, 0);
+  const cart = JSON.parse(localStorage.getItem('cart')) || {};  //Recupera datos del carrito en local storage
+  const totalItems = Object.values(cart).reduce((acc, curr) => acc + curr, 0);  //Calcular numero de articulos en el carrito
   
   cartItemCountElement.textContent = totalItems;
   };
 
+  //Mostrar productos en el carrito
   const displayCart = () => {
   const cartItemsElement = document.getElementById('cart-items');
-  cartItemsElement.innerHTML = '';
+  cartItemsElement.innerHTML = ''; //Limpio el contenido anterior
 
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
   let totalAmount = 0;
 
+  //Obtener el precio de cada producto
   const getProductPrice = (productId) => {
       const prices = {
           apio: 320,
@@ -131,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return prices[productId] || 0;
   };
 
+  //Crear segun el id los datos del producto
   for (const productId in cart) {
       const productElement = document.createElement('article');
       productElement.classList.add('cart-article');
@@ -152,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const productQuantity = document.createElement('p');
       productQuantity.textContent = `Cantidad: ${cart[productId]}`;
 
+      //Obtener el precio de cada producto + Calculo total
       const productPrice = document.createElement('p');
       const pricePerItem = getProductPrice(productId);
       const totalProductPrice = pricePerItem * cart[productId];
@@ -159,22 +164,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
       totalAmount += totalProductPrice;
 
+      //Datos del producto
       productDetails.appendChild(productName);
       productDetails.appendChild(productQuantity);
       productDetails.appendChild(productPrice);
 
-      productImageContainer.appendChild(productImage);
-      productElement.appendChild(productImageContainer);
+      //Contenedor imagen
+      productImageContainer.appendChild(productImage); //Añadir imagen al contendor
+      productElement.appendChild(productImageContainer); //Añadir el contenedor al articulo
       productElement.appendChild(productDetails);
 
       cartItemsElement.appendChild(productElement);
   }
 
-  
+  //Actualizar el importe total
   document.getElementById('total-amount').textContent = totalAmount.toFixed(2);
 };
 
 
+  //Añadir productos al carrito
   const addToCart = (event) => {
       const productId = event.target.closest('.product').dataset.productId;
       let cart = JSON.parse(localStorage.getItem('cart')) || {};
@@ -185,12 +193,13 @@ document.addEventListener('DOMContentLoaded', () => {
       alert(`${productId} ha sido agregado al carrito.`);
   };
 
+  //Evento para "Comprar"
   const buyButtons = document.querySelectorAll('.buy-button');
   buyButtons.forEach(button => {
     button.addEventListener('click', addToCart);
   });
 
-
+  // Actualizar numero de articulos y mostrarlo en el carrito al cargar la pantalla
   updateCartItemCount();
   displayCart();
 });

@@ -520,6 +520,12 @@ footer .footer-left .social a:hover {
     transform: scale(1.2);
 }
 
+@media (min-width: 769px) and (max-width: 975px) {
+    footer{
+        gap: 100px;  
+    }
+ }
+
 @media (min-width: 451px) and (max-width: 768px) {
     footer {
         padding: 40px;
