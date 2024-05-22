@@ -3,10 +3,28 @@ function sendContact(event) {
     let emailValueContact = document.getElementById('emailContact').value;
     if (emailValueContact.includes('@')) {
         mostrarCarga();
-        setTimeout(ocultarCarga, 1200);
+        setTimeout(ocultarCarga,2000);
+        toast();
+        document.getElementById('contacto').reset();
     } else {
         console.log("El email es incorrecto.");
         errorEmail();
+    }
+}
+
+//ESTA FUNCION SE EJECUTA SOLO CUANDO TOCAS POR SEGUNDA VEZ EL BOTON ENVIAR
+function toast() {
+    let numeroCaso = Math.floor(Math.random()*99999)+1;
+    console.log(numeroCaso);
+    document.getElementById("numCaso").innerHTML = numeroCaso;
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('liveToast')
+
+    if (toastTrigger) {
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+        toastTrigger.addEventListener('click', () => {
+            toastBootstrap.show()
+        })
     }
 }
 
@@ -16,7 +34,6 @@ function mostrarCarga() {
 
 function ocultarCarga() {
     document.getElementById("loading").style.display = "none";
-    window.location.href = "http://127.0.0.1:5500/index.html";
 }
 
 function errorEmail() {
@@ -27,3 +44,4 @@ function errorEmail() {
         errorEmail.style.display = 'block'
     }
 }
+

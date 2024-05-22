@@ -16,7 +16,7 @@ function RegisterCheck(event) {
         const users = {
             name: nameValue,
             surname: surnameValue,
-            userName: userName,
+            userName: userValue,
             email: emailValue,
             password: passwordValue
         };
