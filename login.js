@@ -1,5 +1,5 @@
 //Login
-
+//FUNCION SUBMIT DEL FORMULARIO, TOMA LOS DATOS DEL LOCAL STORAGE, Y VALIDA LOS INPUT
 function loginCheck(event) {
     event.preventDefault();
     let emailValue = document.getElementById('email').value;
@@ -29,15 +29,18 @@ function loginCheck(event) {
     }
 }
 
+//MUESTRA EL LOGO DE CARGA UNA VEZ REALIZADO EL SUBMIT
 function mostrarCarga() {
     document.getElementById("loading").style.display = "block";
 }
 
+//OCULTA EL LOGO DE CARGA Y REDIRECCIONA AL HOME
 function ocultarCarga() {
     document.getElementById("loading").style.display = "none";
     window.location.href = "https://verde-fresco.vercel.app";
 }
 
+//SI EL ERROR EXISTE, CAMBIA EL LOCO DEL INPUT
 function errorEmail() {
     let logEmail = document.getElementById('logEmail');
     let errorEmail = document.getElementById('errorEmail');
@@ -47,6 +50,7 @@ function errorEmail() {
     }
 }
 
+//ESTA FUNCION ENVIA EL MAIL CUANDO EL USUARIO OLVIDA LA CONTRASEÑA 
 function errorPassword() {
     let logPassword = document.getElementById('logPassword');
     let errorPassword = document.getElementById('errorPassword');
@@ -56,6 +60,7 @@ function errorPassword() {
     }
 }
 
+//ESTA FUNCION ENVIA EL MAIL CUANDO EL USUARIO OLVIDA LA CONTRASEÑA
 function mailPassword() {
     let emailValue = document.getElementById('emailPassword').value;
     var templateParams = {

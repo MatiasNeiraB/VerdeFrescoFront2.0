@@ -1,4 +1,5 @@
-//Envio de mail
+//FUNCION SUBMIT DEL FORMULARIO, TOMA LOS DATOS DEl INPUT Y VALIDA LOS DATOS
+
 function sendContact(event) {
     event.preventDefault();
     let emailValueContact = document.getElementById('emailContact').value;
@@ -13,7 +14,9 @@ function sendContact(event) {
     }
 }
 
-//ESTA FUNCION SE EJECUTA SOLO CUANDO TOCAS POR SEGUNDA VEZ EL BOTON ENVIAR
+//ESTA FUNCION GENERA UN NUMERO DE CASO Y MUESTRA UN MENSAJE MOMENTANEO EN LA PARTE DE ABAJO DE LA PANTALLA, PERO TENEMOS UN PROBLEMA
+// QUE SE EJECUTA SOLO CUANDO TOCAS POR SEGUNDA VEZ EL BOTON ENVIAR
+
 function toast() {
     let numeroCaso = Math.floor(Math.random()*99999)+1;
     console.log(numeroCaso);
@@ -29,14 +32,18 @@ function toast() {
     }
 }
 
+//MUESTRA EL LOGO DE CARGA UNA VEZ REALIZADO EL SUBMIT
 function mostrarCarga() {
     document.getElementById("loading").style.display = "block";
 }
 
+
+//OCULTA EL LOGO DE CARGA
 function ocultarCarga() {
     document.getElementById("loading").style.display = "none";
 }
 
+//SI EL ERROR EXISTE, CAMBIA EL LOCO DEL INPUT
 function errorEmail() {
     let logEmail = document.getElementById('logEmail');
     let errorEmail = document.getElementById('errorEmail');

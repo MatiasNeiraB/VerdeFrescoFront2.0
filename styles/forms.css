@@ -16,7 +16,7 @@
 
 .block-login {
     position: relative;
-    width: 400px;
+    width: 350px;
     border: transparent;
     border-radius: 70px;
     height: 450px;
@@ -202,7 +202,7 @@
 
 @media (max-width: 450px) {
     .block-register {
-        width: 370px;
+        width: 350px;
         border-radius: 70px;
         height: 550px;
         display: flex;
@@ -226,14 +226,14 @@
 
 
 #loading {
-    display: none; /* Ocultar inicialmente */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
-    z-index: 9999; /* Asegurarse de que esté por encima de otros elementos */
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 9999;
 }
 
 #loading::after {
@@ -243,10 +243,10 @@
     left: 50%;
     width: 40px;
     height: 40px;
-    border: 5px solid #f3f3f3; /* Círculo exterior */
-    border-top: 5px solid #3498db; /* Círculo interior */
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db; 
     border-radius: 50%;
-    animation: spin 2s linear infinite; /* Animación de rotación */
+    animation: spin 2s linear infinite; 
 }
 
 @keyframes spin {
