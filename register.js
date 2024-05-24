@@ -1,4 +1,4 @@
-//Register
+//FUNCION SUBMIT DEL FORMULARIO, TOMA LOS DATOS DE LOS INPUT, VALIDA LOS DATOS Y LOS GUARDA EN LOCAL STORAGE
 
 function RegisterCheck(event) {
     event.preventDefault();
@@ -30,16 +30,20 @@ function RegisterCheck(event) {
         console.log("Las contraseñas no son iguales.");
     }
 }
-
+//MUESTRA EL LOGO DE CARGA UNA VEZ REALIZADO EL SUBMIT
 function mostrarCarga() {
     document.getElementById("loading").style.display = "block";
 }
+
+//OCULTA EL LOGO DE CARGA Y REDIRECCIONA AL HOME
 
 function ocultarCarga() {
     document.getElementById("loading").style.display = "none";
     window.location.href = "https://verde-fresco.vercel.app";
     console.log("ENTRASTE");
 }
+
+// FUNCION PARA ENVIAR UN MAIL AL USUARIO UNA VEZ REGISTRADO
 
 function mailRegister() {
     let userLS = JSON.parse(localStorage.getItem('users'));
@@ -48,6 +52,7 @@ function mailRegister() {
     var templateParams = {
         userName: nameLS,
         destinatario: emailLS,
+        message: 'Obtuviste un 20% de descuento en nuestra web usando el código "Verde20"',
     };
 
     emailjs.send('service_nc9bzlp', 'template_jiemk57', templateParams).then(
