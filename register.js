@@ -1,3 +1,5 @@
+var axios = require('axios');
+
 //FUNCION SUBMIT DEL FORMULARIO, TOMA LOS DATOS DE LOS INPUT, VALIDA LOS DATOS Y LOS GUARDA EN LOCAL STORAGE
 
 function RegisterCheck(event) {
@@ -15,16 +17,33 @@ function RegisterCheck(event) {
         console.log("El email no puede tener más de 30 caracteres.");
     } else if (passwordValue === repitPasswordValue) {
         mostrarCarga();
-        const users = {
-            name: nameValue,
-            surname: surnameValue,
-            userName: userValue,
-            email: emailValue,
-            password: passwordValue
-        };
-        const userJSON = JSON.stringify(users);
-        localStorage.setItem("users", userJSON);
-        mailRegister();
+        const postUser = async () => {
+            try {
+                const data = {
+                    name: nameValue,
+                    surName: surnameValue,
+                    userName: userValue,
+                    email: emailValue,
+                    password: passwordValue
+                }
+                const sendData = await axios.post("http://localhost:3000/user", data);
+                console.log(sendData)
+            } catch (error) {
+                console.log(error);
+
+            }
+        }
+        postUser();
+        // const users = {
+        //     name: nameValue,
+        //     surname: surnameValue,
+        //     userName: userValue,
+        //     email: emailValue,
+        //     password: passwordValue
+        // };
+        // const userJSON = JSON.stringify(users);
+        // localStorage.setItem("users", userJSON);
+        //mailRegister();
         setTimeout(ocultarCarga, 1200);
     } else {
         console.log("Las contraseñas no son iguales.");
@@ -39,16 +58,17 @@ function mostrarCarga() {
 
 function ocultarCarga() {
     document.getElementById("loading").style.display = "none";
-    window.location.href = "https://verde-fresco.vercel.app";
+    window.location.href = "http://127.0.0.1:5500/index.html";
     console.log("ENTRASTE");
 }
 
 // FUNCION PARA ENVIAR UN MAIL AL USUARIO UNA VEZ REGISTRADO
 
 function mailRegister() {
-    let userLS = JSON.parse(localStorage.getItem('users'));
-    let nameLS = userLS.name;
-    let emailLS = userLS.email;
+    let emailValue = document.getElementById('email').value;
+    let nameValue = document.getElementById('name').value;
+    let nameLS = nameValue;
+    let emailLS = emailValue;
     var templateParams = {
         userName: nameLS,
         destinatario: emailLS,
@@ -64,3 +84,5 @@ function mailRegister() {
         },
     );
 }
+
+

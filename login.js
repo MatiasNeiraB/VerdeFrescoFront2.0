@@ -1,33 +1,51 @@
-//Login
+var axios = require("axios");
+
 //FUNCION SUBMIT DEL FORMULARIO, TOMA LOS DATOS DEL LOCAL STORAGE, Y VALIDA LOS INPUT
 function loginCheck(event) {
     event.preventDefault();
     let emailValue = document.getElementById('email').value;
     let passwordValue = document.getElementById('password').value;
-    let userLS = JSON.parse(localStorage.getItem('users'));
-    let emailLS = userLS.email;
-    let passwordLS = userLS.password;
-
-    if (emailValue.includes('@')) {
-        if (emailValue === emailLS) {
-            if (passwordValue === passwordLS) {
-                console.log("Login Exitoso.");
-
-                mostrarCarga();
-                setTimeout(ocultarCarga, 1200);
-            } else {
-                errorPassword()
-                console.log("Contraseña incorrecta.");
+    const postLogin = async () => {
+        try {
+            if (emailValue) {
+            if (emailValue.includes('@')) {
+                if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(emailValue)) {
+                    console.log("El email no es válido");
+                    errorEmail();
+                    errorPassword();
+                } else if (emailValue.length > 30) {
+                    errorEmail();
+                    errorPassword();
+                    console.log("Credenciales incorrectas.2");
+                } else {
+                    const data = {
+                        email: emailValue,
+                        password: passwordValue
+                    }
+                    const sendData = await axios.post("http://localhost:3000/login", data);
+                    if (sendData.status === 200) {
+                        console.log(sendData.status);
+                            console.log("Login exitoso");
+                            mostrarCarga();
+                            setTimeout(ocultarCarga, 1200);
+                        } else {
+                            console.log("Credenciales incorrectas");
+                            errorEmail();
+                            errorPassword();
+                        }
+                }
+            }else{
+                console.log("El email tiene que tener @");
+            }}else{
+                console.log("El email es obligatorio");
             }
-        } else {
-            console.log("El email es incorrecto.");
-            errorEmail();
+        } catch (error) {
+            console.log(error);
         }
-    } else {
-
-        errorEmail();
     }
+    postLogin();
 }
+
 
 //MUESTRA EL LOGO DE CARGA UNA VEZ REALIZADO EL SUBMIT
 function mostrarCarga() {
@@ -37,7 +55,7 @@ function mostrarCarga() {
 //OCULTA EL LOGO DE CARGA Y REDIRECCIONA AL HOME
 function ocultarCarga() {
     document.getElementById("loading").style.display = "none";
-    window.location.href = "https://verde-fresco.vercel.app";
+    window.location.href = "http://127.0.0.1:5500/index.html";
 }
 
 //SI EL ERROR EXISTE, CAMBIA EL LOCO DEL INPUT
