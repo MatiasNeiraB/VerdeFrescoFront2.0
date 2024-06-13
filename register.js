@@ -34,15 +34,6 @@ function RegisterCheck(event) {
             }
         }
         postUser();
-        // const users = {
-        //     name: nameValue,
-        //     surname: surnameValue,
-        //     userName: userValue,
-        //     email: emailValue,
-        //     password: passwordValue
-        // };
-        // const userJSON = JSON.stringify(users);
-        // localStorage.setItem("users", userJSON);
         //mailRegister();
         setTimeout(ocultarCarga, 1200);
     } else {

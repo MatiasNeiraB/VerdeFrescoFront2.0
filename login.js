@@ -1,4 +1,5 @@
-var axios = require("axios");
+var axios = require('axios');
+
 
 //FUNCION SUBMIT DEL FORMULARIO, TOMA LOS DATOS DEL LOCAL STORAGE, Y VALIDA LOS INPUT
 function loginCheck(event) {
@@ -8,23 +9,24 @@ function loginCheck(event) {
     const postLogin = async () => {
         try {
             if (emailValue) {
-            if (emailValue.includes('@')) {
-                if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(emailValue)) {
-                    console.log("El email no es válido");
-                    errorEmail();
-                    errorPassword();
-                } else if (emailValue.length > 30) {
-                    errorEmail();
-                    errorPassword();
-                    console.log("Credenciales incorrectas.2");
-                } else {
-                    const data = {
-                        email: emailValue,
-                        password: passwordValue
-                    }
-                    const sendData = await axios.post("http://localhost:3000/login", data);
-                    if (sendData.status === 200) {
-                        console.log(sendData.status);
+                if (emailValue.includes('@')) {
+                    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(emailValue)) {
+                        console.log("El email no es válido");
+                        errorEmail();
+                        errorPassword();
+                    } else if (emailValue.length > 30) {
+                        errorEmail();
+                        errorPassword();
+                        console.log("Credenciales incorrectas.2");
+                    } else {
+                        const data = {
+                            email: emailValue,
+                            password: passwordValue
+                        }
+                        const sendData = await axios.post("http://localhost:3000/login", data);
+                        if (sendData.status === 200) {
+                            const tokenUSer = sendData.data;
+                            localStorage.setItem("token", tokenUSer.token)
                             console.log("Login exitoso");
                             mostrarCarga();
                             setTimeout(ocultarCarga, 1200);
@@ -33,10 +35,11 @@ function loginCheck(event) {
                             errorEmail();
                             errorPassword();
                         }
+                    }
+                } else {
+                    console.log("El email tiene que tener @");
                 }
-            }else{
-                console.log("El email tiene que tener @");
-            }}else{
+            } else {
                 console.log("El email es obligatorio");
             }
         } catch (error) {
@@ -44,8 +47,17 @@ function loginCheck(event) {
         }
     }
     postLogin();
+    //authToken()
 }
 
+// function authToken() {
+//     const token_LS = localStorage.getItem('token');
+//     if (token_LS) {
+//         axios.defaults.headers.common['x-token'] = token;
+//     } else {
+//         delete axios.defaults.headers.common['x-token'];
+//     }
+// }
 
 //MUESTRA EL LOGO DE CARGA UNA VEZ REALIZADO EL SUBMIT
 function mostrarCarga() {
