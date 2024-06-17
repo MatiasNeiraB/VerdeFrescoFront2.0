@@ -5,8 +5,12 @@ function products() {
         try {
             const token = localStorage.getItem('token');
             const headers = {
-                'Authorization': `Bearer ${token}`,};
-            const response = await axios.get("http://localhost:3000/products",  { headers });
+                'Authorization': `Bearer ${token}`,
+            };
+            const response = await axios.get("http://localhost:3000/products", { headers });
+            if (response.status === 403) {
+                localStorage.removeItem('token');
+            }
             const products = response.data;
             const productosDinamicos = document.getElementById('products');
             products.forEach((product) => {
@@ -26,7 +30,12 @@ function products() {
                 productosDinamicos.appendChild(div);
             });
         } catch (error) {
-            console.log(error);
+            if (error.response.status === 403) {
+                localStorage.removeItem('token');
+                console.log("Token eliminado del localStorage debido a un error 403");
+            } else {
+                console.error("Error al obtener los productos:", error);
+            }
         }
     }
     getProducts();
@@ -44,17 +53,22 @@ function addProductCart(event) {
             try {
                 const token = localStorage.getItem('token');
                 const headers = {
-                'Authorization': `Bearer ${token}`,};
+                    'Authorization': `Bearer ${token}`,
+                };
                 const data = {
                     product_id: productId,
                     quantity: quantityProduct
                 };
-                const sendDataCart = await axios.post("http://localhost:3000/products", data,  { headers });
-                if (sendDataCart.status === 201) {
-                    console.log("addCart exitoso");
-                } else {
-                    console.log("Error al hacer addCart");
-                }
+                const sendDataCart = await axios.post("http://localhost:3000/products", data, { headers });
+                console.log(sendDataCart);
+                if (sendDataCart.status === 403) {
+                    localStorage.removeItem('token');
+                } else
+                    if (sendDataCart.status === 201) {
+                        console.log("addCart exitoso");
+                    } else {
+                        console.log("Error al hacer addCart");
+                    }
             } catch (error) {
                 console.log(error);
             }

@@ -222,7 +222,12 @@ function seeCart() {
       const response = await axios.get("http://localhost:3000/cart", { headers });
       console.log(response.data);
     } catch (error) {
-      console.log(error);
+      if (error.response.status === 403) {
+        localStorage.removeItem('token');
+        console.log("Token eliminado del localStorage debido a un error 403");
+      } else {
+        console.error("Error al obtener los carritos:", error);
+      }
     }
   }
   getCart();
