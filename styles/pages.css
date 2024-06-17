@@ -383,3 +383,21 @@ header h1{
   border: none;
   box-shadow: var(--shadow);
 }
+
+.btn-cart{
+  width: 35px;
+}
+
+.numberInput{
+  width: 35px;
+  text-align: center;
+  margin: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  display: none;
+}
+
+.descriptions{
+  width: 350px;
+}

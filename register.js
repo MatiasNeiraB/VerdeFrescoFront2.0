@@ -26,7 +26,7 @@ function RegisterCheck(event) {
                     email: emailValue,
                     password: passwordValue
                 }
-                const sendData = await axios.post("http://localhost:3000/user", data);
+                const sendData = await axios.post("http://localhost:3000/register", data);
                 console.log(sendData)
             } catch (error) {
                 console.log(error);
@@ -49,7 +49,7 @@ function mostrarCarga() {
 
 function ocultarCarga() {
     document.getElementById("loading").style.display = "none";
-    window.location.href = "http://127.0.0.1:5500/index.html";
+    //window.location.href = "http://127.0.0.1:5500/index.html";
     console.log("ENTRASTE");
 }
 

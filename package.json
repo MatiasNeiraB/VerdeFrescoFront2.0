@@ -3,5 +3,16 @@
     "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5"
-  }
+  },
+  "name": "verde-fresco-front",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

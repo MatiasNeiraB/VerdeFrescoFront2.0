@@ -68,7 +68,7 @@ function nameUser() {
     logoutLink.href = '#';
     logoutLink.id = 'logoutLink';
     logoutLink.textContent = '- Salir';
-    
+
     logoutLink.addEventListener('click', logoutUser);
 
     nameUser.appendChild(userNameText);
@@ -78,7 +78,13 @@ function nameUser() {
       iconUser.style.display = 'inline';
     }
     nameUser.innerHTML = '';
-    nameUser.href = '/pages/login.html';
+    const token = localStorage.getItem('token');
+    if (token) {
+      nameUser.href = '/index.html';
+    } else {
+      nameUser.href = '/pages/login.html';
+    }
+
     nameUser.innerHTML = '<i id="iconUser" class="fa-solid fa-user"></i>';
   }
 }
@@ -104,38 +110,38 @@ document.addEventListener('DOMContentLoaded', nameUser);
 document.addEventListener('DOMContentLoaded', () => {
   //Actualizar numero en el carrito
   const updateCartItemCount = () => {
-  const cartItemCountElement = document.getElementById('cartItemCount');
-  const cart = JSON.parse(localStorage.getItem('cart')) || {};  //Recupera datos del carrito en local storage
-  const totalItems = Object.values(cart).reduce((acc, curr) => acc + curr, 0);  //Calcular numero de articulos en el carrito
-  
-  cartItemCountElement.textContent = totalItems;
+    const cartItemCountElement = document.getElementById('cartItemCount');
+    const cart = JSON.parse(localStorage.getItem('cart')) || {};  //Recupera datos del carrito en local storage
+    const totalItems = Object.values(cart).reduce((acc, curr) => acc + curr, 0);  //Calcular numero de articulos en el carrito
+
+    cartItemCountElement.textContent = totalItems;
   };
 
   //Mostrar productos en el carrito
   const displayCart = () => {
-  const cartItemsElement = document.getElementById('cart-items');
-  cartItemsElement.innerHTML = ''; //Limpio el contenido anterior
+    const cartItemsElement = document.getElementById('cart-items');
+    cartItemsElement.innerHTML = ''; //Limpio el contenido anterior
 
-  const cart = JSON.parse(localStorage.getItem('cart')) || {};
-  let totalAmount = 0;
+    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    let totalAmount = 0;
 
-  //Obtener el precio de cada producto
-  const getProductPrice = (productId) => {
+    //Obtener el precio de cada producto
+    const getProductPrice = (productId) => {
       const prices = {
-          apio: 320,
-          zanahoria: 220,
-          tomate: 350,
-          ajo: 400,
-          limon: 200,
-          naranja: 250,
-          frambuesa: 550
+        apio: 320,
+        zanahoria: 220,
+        tomate: 350,
+        ajo: 400,
+        limon: 200,
+        naranja: 250,
+        frambuesa: 550
       };
 
       return prices[productId] || 0;
-  };
+    };
 
-  //Crear segun el id los datos del producto
-  for (const productId in cart) {
+    //Crear segun el id los datos del producto
+    for (const productId in cart) {
       const productElement = document.createElement('article');
       productElement.classList.add('cart-article');
 
@@ -175,22 +181,22 @@ document.addEventListener('DOMContentLoaded', () => {
       productElement.appendChild(productDetails);
 
       cartItemsElement.appendChild(productElement);
-  }
+    }
 
-  //Actualizar el importe total
-  document.getElementById('total-amount').textContent = totalAmount.toFixed(2);
-};
+    //Actualizar el importe total
+    document.getElementById('total-amount').textContent = totalAmount.toFixed(2);
+  };
 
 
   //Añadir productos al carrito
   const addToCart = (event) => {
-      const productId = event.target.closest('.product').dataset.productId;
-      let cart = JSON.parse(localStorage.getItem('cart')) || {};
-      cart[productId] = (cart[productId] || 0) + 1;
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartItemCount();
-      displayCart();
-      alert(`${productId} ha sido agregado al carrito.`);
+    const productId = event.target.closest('.product').dataset.productId;
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    cart[productId] = (cart[productId] || 0) + 1;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartItemCount();
+    displayCart();
+    alert(`${productId} ha sido agregado al carrito.`);
   };
 
   //Evento para "Comprar"
@@ -203,3 +209,22 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCartItemCount();
   displayCart();
 });
+
+var axios = require('axios');
+
+function seeCart() {
+  const getCart = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const headers = {
+        'Authorization': `Bearer ${token}`,
+      };
+      const response = await axios.get("http://localhost:3000/cart", { headers });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  getCart();
+
+}

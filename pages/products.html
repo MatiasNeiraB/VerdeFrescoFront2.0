@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,86 +8,55 @@
     <title>Verde Fresco - Productos</title>
 
     <!-- CSS & Js -->
-    <link rel="stylesheet" href="../styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/pages.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../products.js"></script>
     <script src="../index.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
-  <nav id="navbar">
-    <div class="navbar-left">
-        <a href="/index.html"><img src="../assets/img/logo.png" alt="verde-fresco"></a>
-    </div>
-    <div class="navbar-middle">
-        <a href="./products.html">PRODUCTOS</a>
-        <a href="./about.html">NOSOTROS</a>
-        <a href="./blog.html">BLOG</a>
-        <a href="./contact.html">CONTACTO</a>
-    </div>
-    <div class="navbar-right">
-      <a id="nameUser" href="./login.html"><i id="iconUser" class="fa-solid fa-user"></i></a>
-      <a href="./cart.html" id="cartIcon"><i class="fa-solid fa-cart-shopping"></i> <span id="cartItemCount">0</span></a>
-    </div>
-  </nav>
+    <nav id="navbar">
+        <div class="navbar-left">
+            <a href="/index.html"><img src="../assets/img/logo.png" alt="verde-fresco"></a>
+        </div>
+        <div class="navbar-middle">
+            <a href="./products.html">PRODUCTOS</a>
+            <a href="./about.html">NOSOTROS</a>
+            <a href="./blog.html">BLOG</a>
+            <a href="./contact.html">CONTACTO</a>
+        </div>
+        <div class="navbar-right">
+            <a id="nameUser" href="./login.html"><i id="iconUser" class="fa-solid fa-user"></i></a>
+            <a href="./cart.html" id="cartIcon"><i class="fa-solid fa-cart-shopping"></i> <span
+                    id="cartItemCount">0</span></a>
+        </div>
+    </nav>
 
     <header>
-      <h1>Productos</h1>
+        <h1>Productos</h1>
     </header>
-
+    <button onclick="products()">Productos</button>
     <section class="products">
-      <div class="products-grid">
-        <div class="product" data-product-id="apio">
-          <img src="../assets/img/product-apio.png" alt="apio" />
-          <h3>Apio</h3>
-          <p>$320</p>
-          <button class="buy-button">Comprar</button>
+        <div id="products" class="products-grid">
+            
         </div>
-        <div class="product" data-product-id="zanahoria">
-          <img src="../assets/img/product-zanahoria.png" alt="zanahoria" />
-          <h3>Zanahoria</h3>
-          <p>$220</p>
-          <button class="buy-button">Comprar</button>
-        </div>
-        <div class="product" data-product-id="tomate">
-          <img src="../assets/img/product-tomate.png" alt="tomate" />
-          <h3>Tomate</h3>
-          <p>$350</p>
-          <button class="buy-button">Comprar</button>
-        </div>
-        <div class="product" data-product-id="ajo">
-          <img src="../assets/img/product-ajo.png" alt="ajo" />
-          <h3>Ajo</h3>
-          <p>$400</p>
-          <button class="buy-button">Comprar</button>
-        </div>
-        <div class="product" data-product-id="limon">
-          <img src="../assets/img/product-limon.png" alt="limon" />
-          <h3>Limon</h3>
-          <p>$200</p>
-          <button class="buy-button">Comprar</button>
-        </div>
-        <div class="product" data-product-id="naranja">
-          <img src="../assets/img/product-naranja.png" alt="naranja" />
-          <h3>Naranja</h3>
-          <p>$250</p>
-          <button class="buy-button">Comprar</button>
-        </div>
-        <div class="product" data-product-id="frambuesa">
-          <img src="../assets/img/product-frambuesa.png" alt="frambuesa" />
-          <h3>Frambuesa</h3>
-          <p>$550</p>
-          <button class="buy-button">Comprar</button>
-        </div>
-      </div>
     </section>
-    
+
 
     <footer>
         <div class="footer-left">
@@ -103,9 +73,13 @@
             </div>
         </div>
         <div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d47708.21977049014!2d-64.31378227504969!3d-32.979601891496095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1712239115120!5m2!1ses-419!2sar" width="300" height="225" style="border-radius:25px; border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d47708.21977049014!2d-64.31378227504969!3d-32.979601891496095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1712239115120!5m2!1ses-419!2sar"
+                width="300" height="225" style="border-radius:25px; border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </footer>
 
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +11,20 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../styles/pages.css">
     <script src="../index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
+
 <body>
 
     <nav id="navbar">
@@ -33,10 +38,11 @@
             <a href="./contact.html">CONTACTO</a>
         </div>
         <div class="navbar-right">
-          <a id="nameUser" href="./login.html"><i id="iconUser" class="fa-solid fa-user"></i></a>
-            <a href="./cart.html" id="cartIcon"><i class="fa-solid fa-cart-shopping"></i> <span id="cartItemCount">0</span></a>
+            <a id="nameUser" href="./login.html"><i id="iconUser" class="fa-solid fa-user"></i></a>
+            <a href="./cart.html" id="cartIcon"><i class="fa-solid fa-cart-shopping"></i> <span
+                    id="cartItemCount">0</span></a>
         </div>
-      </nav>
+    </nav>
 
     <header>
         <h1>Carrito</h1>
@@ -48,7 +54,7 @@
             </div>
         </article>
         <hr>
-        
+        <button onclick="seeCart()">Ver Carrito</button>
         <article class="cart-article">
             <h3>Importe Total: $<span id="total-amount">0</span></h3>
         </article>
@@ -70,9 +76,13 @@
             </div>
         </div>
         <div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d47708.21977049014!2d-64.31378227504969!3d-32.979601891496095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1712239115120!5m2!1ses-419!2sar" width="300" height="225" style="border-radius:25px; border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d47708.21977049014!2d-64.31378227504969!3d-32.979601891496095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1712239115120!5m2!1ses-419!2sar"
+                width="300" height="225" style="border-radius:25px; border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </footer>
 
 </body>
+
 </html>

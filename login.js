@@ -1,6 +1,5 @@
 var axios = require('axios');
 
-
 //FUNCION SUBMIT DEL FORMULARIO, TOMA LOS DATOS DEL LOCAL STORAGE, Y VALIDA LOS INPUT
 function loginCheck(event) {
     event.preventDefault();
@@ -17,12 +16,13 @@ function loginCheck(event) {
                     } else if (emailValue.length > 30) {
                         errorEmail();
                         errorPassword();
-                        console.log("Credenciales incorrectas.2");
+                        console.log("Credenciales incorrectas.");
                     } else {
                         const data = {
                             email: emailValue,
                             password: passwordValue
                         }
+                        
                         const sendData = await axios.post("http://localhost:3000/login", data);
                         if (sendData.status === 200) {
                             const tokenUSer = sendData.data;
@@ -47,17 +47,17 @@ function loginCheck(event) {
         }
     }
     postLogin();
-    //authToken()
+    authToken()
 }
 
-// function authToken() {
-//     const token_LS = localStorage.getItem('token');
-//     if (token_LS) {
-//         axios.defaults.headers.common['x-token'] = token;
-//     } else {
-//         delete axios.defaults.headers.common['x-token'];
-//     }
-// }
+function authToken() {
+    const token_LS = localStorage.getItem('token');
+    if (token_LS) {
+        axios.defaults.headers.common['x-token'] = token;
+    } else {
+        delete axios.defaults.headers.common['x-token'];
+    }
+}
 
 //MUESTRA EL LOGO DE CARGA UNA VEZ REALIZADO EL SUBMIT
 function mostrarCarga() {
