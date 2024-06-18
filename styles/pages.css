@@ -401,3 +401,7 @@ input[type=number]::-webkit-inner-spin-button {
 .descriptions{
   width: 350px;
 }
+
+.button_order{
+  height: 20px;
+}

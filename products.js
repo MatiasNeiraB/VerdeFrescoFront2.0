@@ -8,9 +8,6 @@ function products() {
                 'Authorization': `Bearer ${token}`,
             };
             const response = await axios.get("http://localhost:3000/products", { headers });
-            if (response.status === 403) {
-                localStorage.removeItem('token');
-            }
             const products = response.data;
             const productosDinamicos = document.getElementById('products');
             products.forEach((product) => {
