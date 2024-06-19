@@ -1,6 +1,5 @@
-var axios = require('axios');
 
-function getOrdenes() {
+window.onload = function getOrdenes() {
     const getOrders = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -38,6 +37,8 @@ function getOrdenes() {
     getOrders();
 
 }
+var axios = require('axios');
+
 
 function formatDate(dateString) {
     const date = new Date(dateString);

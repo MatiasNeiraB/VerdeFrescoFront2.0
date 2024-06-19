@@ -27,7 +27,14 @@ function RegisterCheck(event) {
                     password: passwordValue
                 }
                 const sendData = await axios.post("http://localhost:3000/register", data);
-                console.log(sendData)
+                        if (sendData.status === 201) {
+                            const userResponse = sendData.data;
+                            const nameUser = userResponse.nameUser + " " + userResponse.surNameUser;
+                            localStorage.setItem("token", userResponse.token);
+                            localStorage.setItem("userName", nameUser);
+                        }else{
+                            console.log("en el paso 201 tenes un error");
+                        }
             } catch (error) {
                 console.log(error);
 
@@ -49,8 +56,7 @@ function mostrarCarga() {
 
 function ocultarCarga() {
     document.getElementById("loading").style.display = "none";
-    //window.location.href = "http://127.0.0.1:5500/index.html";
-    console.log("ENTRASTE");
+    window.location.href = "http://127.0.0.1:5500/index.html";
 }
 
 // FUNCION PARA ENVIAR UN MAIL AL USUARIO UNA VEZ REGISTRADO

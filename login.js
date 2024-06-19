@@ -25,11 +25,20 @@ function loginCheck(event) {
                         
                         const sendData = await axios.post("http://localhost:3000/login", data);
                         if (sendData.status === 200) {
-                            const tokenUSer = sendData.data;
-                            localStorage.setItem("token", tokenUSer.token)
-                            console.log("Login exitoso");
-                            mostrarCarga();
-                            setTimeout(ocultarCarga, 1200);
+                            const userResponse = sendData.data;
+                            const nameUser = userResponse.nameUser + " " + userResponse.surNameUser;
+                            localStorage.setItem("token", userResponse.token);
+                            localStorage.setItem("userName", nameUser);
+                            const rol_user = userResponse.rol;
+                            if (rol_user === "ADMINISTRADOR") {
+                                mostrarCarga();
+                                setTimeout(ocultarCarga, 1200);
+                                window.location.href = "http://127.0.0.1:5500/pages/admin.html";
+                            }else{
+                                mostrarCarga();
+                                setTimeout(ocultarCarga, 1200);
+                                window.location.href = "http://127.0.0.1:5500/index.html";
+                            }
                         } else {
                             console.log("Credenciales incorrectas");
                             errorEmail();
@@ -47,16 +56,6 @@ function loginCheck(event) {
         }
     }
     postLogin();
-    authToken()
-}
-
-function authToken() {
-    const token_LS = localStorage.getItem('token');
-    if (token_LS) {
-        axios.defaults.headers.common['x-token'] = token;
-    } else {
-        delete axios.defaults.headers.common['x-token'];
-    }
 }
 
 //MUESTRA EL LOGO DE CARGA UNA VEZ REALIZADO EL SUBMIT
@@ -65,9 +64,8 @@ function mostrarCarga() {
 }
 
 //OCULTA EL LOGO DE CARGA Y REDIRECCIONA AL HOME
-function ocultarCarga() {
-    document.getElementById("loading").style.display = "none";
-    window.location.href = "http://127.0.0.1:5500/index.html";
+function ocultarCarga(rol_user) {
+    document.getElementById("loading").style.display = "none"
 }
 
 //SI EL ERROR EXISTE, CAMBIA EL LOCO DEL INPUT

@@ -1,6 +1,5 @@
-var axios = require('axios');
 
-function products() {
+window.onload = function products() {
     const getProducts = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -36,8 +35,9 @@ function products() {
         }
     }
     getProducts();
-
 }
+
+var axios = require('axios');
 
 function addProductCart(event) {
     event.preventDefault();
@@ -94,4 +94,3 @@ function incrementButton(event) {
     let currentValue = parseInt(numberInput.value, 10);
     numberInput.value = currentValue + 1;
 };
-

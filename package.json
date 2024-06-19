@@ -7,8 +7,7 @@
   "name": "verde-fresco-front",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
-  "devDependencies": {},
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
