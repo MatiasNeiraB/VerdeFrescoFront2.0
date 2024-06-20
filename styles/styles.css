@@ -223,7 +223,7 @@ nav .navbar-right a:hover {
 
 .header-index{
     height: 100vh;
-    background-image: url("./assets/img/header.png");
+    background-image: url("../assets/img/header.png");
     
     justify-content: center;
     display: flex;
@@ -492,7 +492,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 300px;
-    background-image: url('./assets/img/header.png');
+    background-image: url('../assets/img/header.png');
     color: var(--background-color);
     text-shadow: var(--shadow);
 }

@@ -6,10 +6,10 @@ window.onload = function getOrdenes() {
             const headers = {
                 'Authorization': `Bearer ${token}`,
             };
-            const response = await axios.get("http://localhost:3000/admin", { headers });
+            const response = await axios.get("http://localhost:3000/admin/orders", { headers });
             const orders = response.data;
             const orderDinamicas = document.getElementById('order');
-
+            console.log(orders);
             orders.forEach((order) => {
                 const formatDates = formatDate(order.date);
                 const tr = document.createElement('tr');
@@ -20,7 +20,7 @@ window.onload = function getOrdenes() {
                         <td>${formatDates}</td>
                         <td>${order.status_cart}</td>
                         <td>$${order.totalOrder}</td>
-                        <td><button type="button" class="button" data-bs-toggle="modal" onclick="seeOrder(event)" data-bs-target="#exampleModal" id="${order.id_cart}">VER</td>
+                        <td><button type="button" class="button" data-bs-toggle="modal" onclick="seeOrders(event)" data-bs-target="#modal-orders" id="${order.id_cart}">VER</td>
                     </tr>
                 `;
                 orderDinamicas.appendChild(tr);
@@ -50,10 +50,9 @@ function formatDate(dateString) {
     return `${day}-${month}-${year}- ${hours}:${minutes}`;
 }
 
-function seeOrder(event) {
+function seeOrders(event) {
     event.preventDefault();
-    const targetElement = event.target.id;
-    const order_id = targetElement;
+    const order_id  = event.target.id;
     const seeOrder = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -63,12 +62,12 @@ function seeOrder(event) {
             const data = {
                 id_cart: order_id,
             };
-            const url = `http://localhost:3000/admin/order/${order_id}`;
+            const url = `http://localhost:3000/admin/orders/${order_id}`;
             const sendData = await axios.post(url, data, { headers });
             const dataOrder = sendData.data[0];
             const dataOrders = sendData.data;
             const orderDinamicas = document.getElementById('body_modal');
-            const titleOrder = document.getElementById('exampleModalLabel');
+            const titleOrder = document.getElementById('ordenTitulo');
             const mensajeTexto = "Orden" + " #" + dataOrder.id_cart;
             titleOrder.innerHTML = mensajeTexto;
             dataOrders.forEach((order) => {

@@ -1,4 +1,3 @@
-
 window.onload = function products() {
     const getProducts = async () => {
         try {

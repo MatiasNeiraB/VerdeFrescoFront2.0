@@ -33,7 +33,7 @@ function loginCheck(event) {
                             if (rol_user === "ADMINISTRADOR") {
                                 mostrarCarga();
                                 setTimeout(ocultarCarga, 1200);
-                                window.location.href = "http://127.0.0.1:5500/pages/admin.html";
+                                window.location.href = "http://127.0.0.1:5500/admin/orders.html";
                             }else{
                                 mostrarCarga();
                                 setTimeout(ocultarCarga, 1200);
