@@ -53,33 +53,12 @@ function seeProductAdmin(event) {
             const url = `http://localhost:3000/admin/products/${product_id}`;
             const sendData = await axios.post(url, data, { headers });
             const product = sendData.data[0];
-            const nameProductDinamico = document.getElementById('name_product');
-            const divName = document.createElement('div');
-            divName.innerHTML = `
-                    <div>
-                        <label for="recipient-name"  class="col-form-label">Nombre:</label>
-                        <input type="text" class="form-control" value="${product.name}" id="nameProduct">
-                    </div>
-                `;
-            nameProductDinamico.appendChild(divName);
-            const descriptionDinamico = document.getElementById('description_product');
-            const divDescription = document.createElement('div');
-            divDescription.innerHTML = `
-                    <div>
-                        <label for="message-text" class="col-form-label">Descripción:</label>
-                        <textarea class="form-control" id="descriptionProduct">${product.descriptions}</textarea>
-                    </div>
-                `;
-            descriptionDinamico.appendChild(divDescription);
-            const priceDinamico = document.getElementById('price_product');
-            const divPrice = document.createElement('div');
-            divPrice.innerHTML = `
-                    <div>
-                        <label for="message-text" class="col-form-label">Precio:</label>
-                        <input class="form-control" value="${product.price}" id="priceProduct" type="number">
-                    </div>
-                `;
-            priceDinamico.appendChild(divPrice);
+            const id_productTitle = document.getElementById('id_Product');
+            id_productTitle.innerText = product_id;
+            document.getElementById('nameProduct').value = product.name;
+            document.getElementById('descriptionProduct').value = product.descriptions;
+            document.getElementById('imgProduct').src = product.img;
+            document.getElementById('priceProduct').value = product.price;
         } catch (error) {
             console.log(error);
             if (error.response.status === 403) {
@@ -92,3 +71,41 @@ function seeProductAdmin(event) {
     }
     seeProduct();
 }
+
+function putProduct(event) {
+    const putProductAdmin = async () => {
+        try {
+            const putIdProduct = document.getElementById('id_Product').innerText;
+            const putNameProduct = document.getElementById('nameProduct').value;
+            const putDescriptionProduct = document.getElementById('descriptionProduct').value;
+            const putImgProduct = document.getElementById('imgProduct').src;
+            const putPriceProduct = document.getElementById('priceProduct').value;
+            const product_id = putIdProduct;
+            const token = localStorage.getItem('token');
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+            };
+            const data = {
+                id: product_id,
+                name: putNameProduct,
+                descriptions: putDescriptionProduct,
+                price: putPriceProduct,
+                img: putImgProduct,
+            };
+            const url = `http://localhost:3000/admin/products/${product_id}`;
+            const sendData = await axios.put(url, data, { headers });   
+            console.log(sendData); 
+        } catch (error) {
+            console.log(error);
+            if (error.response.status === 403) {
+                localStorage.removeItem('token');
+                console.log("Token eliminado del localStorage debido a un error 403");
+            } else {
+                console.error("Error al obtener la orden:", error);
+            }
+        }
+    }
+    putProductAdmin();
+    location.reload(); 
+}
+

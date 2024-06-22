@@ -74,30 +74,33 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5">EDITAR PRODUCTO</h1>
+                    <h1 class="modal-title fs-5">EDITAR PRODUCTO # </h1><h4 class="modal-title" id="id_Product" fs-5"></h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div id="name_product" class="mb-3">
-                
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nameProduct">
+                        </div>
+                        <div class="mb-3 img">
+                            <label for="img">Imagen:</label>
+                            <img class="img_modal" id="imgProduct" alt="">
+                            <input type="file" id="img" name="img" accept="image/*"></input>
                         </div>
                         <div class="mb-3">
-                            <label for="foto">Imagen:</label>
-                            <img src="" alt="">
-                            <input type="file" id="foto" name="foto" accept="image/*">
+                            <label for="message-text" class="col-form-label">Descripción:</label>
+                            <textarea class="form-control" id="descriptionProduct"></textarea>
                         </div>
-                        <div id="description_product" class="mb-3">
-                            
-                        </div>
-                        <div id="price_product" class="mb-3">
-                            
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Precio:</label>
+                            <input class="form-control" id="priceProduct" type="number">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+                    <button type="button" class="btn btn-secondary" onclick="clearProductAdmin()" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="putProduct(event)" data-bs-dismiss="modal">Guardar</button>
                 </div>
             </div>
         </div>

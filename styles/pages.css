@@ -410,3 +410,12 @@ input[type=number]::-webkit-inner-spin-button {
   width: 50px;
   height: auto;
 }
+
+.img_modal{
+  width: 80px;
+  height: auto;
+}
+
+#descriptionProduct{
+  height: 120px;
+}
