@@ -17,8 +17,8 @@ window.onload = function getProduct() {
                         <td>${product.name}</td>
                         <td>${product.descriptions}</td>
                         <td>$${product.price}</td>
-                        <td><button type="button" data-bs-toggle="modal" onclick="seeProductAdmin(event)" data-bs-target="#modal-product" id="${product.id}""
-                        data-bs-whatever="@mdo">EDITAR</button></td>
+                        <td><button class="btn btn-danger" id="${product.id}" onclick="deleteProduct(event)">ELIMINAR</button></td>
+                        <td><button type="button" data-bs-toggle="modal" onclick="seeProductAdmin(event)" data-bs-target="#modal-product" id="${product.id}" data-bs-whatever="@mdo">EDITAR</button></td>
 
                     </tr>
                 `;
@@ -93,8 +93,8 @@ function putProduct(event) {
                 img: putImgProduct,
             };
             const url = `http://localhost:3000/admin/products/${product_id}`;
-            const sendData = await axios.put(url, data, { headers });   
-            console.log(sendData); 
+            const sendData = await axios.put(url, data, { headers });
+            console.log(sendData);
         } catch (error) {
             console.log(error);
             if (error.response.status === 403) {
@@ -106,6 +106,38 @@ function putProduct(event) {
         }
     }
     putProductAdmin();
-    location.reload(); 
+    location.reload();
+}
+
+function deleteProduct(event) {
+    event.preventDefault();
+    const product_id = event.target.id;
+    const userConfirmed = window.confirm("¿Estás seguro de que deseas eliminar el producto #" + product_id + "?");
+    if (!userConfirmed) {
+        return; };
+        
+    const deleteProductAdmin = async () => {
+        try {
+
+            const token = localStorage.getItem('token');
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+            };
+            const url = `http://localhost:3000/admin/products/${product_id}`;
+            const sendData = await axios.delete(url, {
+                headers: headers, data: { id: product_id }
+            });
+        } catch (error) {
+            console.log(error);
+            if (error.response.status === 403) {
+                localStorage.removeItem('token');
+                console.log("Token eliminado del localStorage debido a un error 403");
+            } else {
+                console.error("Error al obtener la orden:", error);
+            }
+        }
+    }
+    deleteProductAdmin();
+    location.reload();
 }
 
