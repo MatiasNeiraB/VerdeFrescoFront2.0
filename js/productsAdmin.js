@@ -27,9 +27,11 @@ window.onload = function getProduct() {
         } catch (error) {
             if (error.response.status === 403) {
                 localStorage.removeItem('token');
+                window.location.href = "http://127.0.0.1:5500/pages/login.html";
                 console.log("Token eliminado del localStorage debido a un error 403");
+
             } else {
-                console.error("Error al obtener las ordenes:", error);
+                console.error("Error al obtener los productos:", error);
             }
         }
     }
@@ -65,7 +67,7 @@ function seeProductAdmin(event) {
                 localStorage.removeItem('token');
                 console.log("Token eliminado del localStorage debido a un error 403");
             } else {
-                console.error("Error al obtener la orden:", error);
+                console.error("Error al obtener el producto:", error);
             }
         }
     }
@@ -101,12 +103,13 @@ function putProduct(event) {
                 localStorage.removeItem('token');
                 console.log("Token eliminado del localStorage debido a un error 403");
             } else {
-                console.error("Error al obtener la orden:", error);
+                console.error("Error al editar el producto:", error);
             }
         }
     }
     putProductAdmin();
-    location.reload();
+    mostrarCarga()
+    setTimeout(ocultarCarga, 1000);
 }
 
 function deleteProduct(event) {
@@ -114,8 +117,9 @@ function deleteProduct(event) {
     const product_id = event.target.id;
     const userConfirmed = window.confirm("¿Estás seguro de que deseas eliminar el producto #" + product_id + "?");
     if (!userConfirmed) {
-        return; };
-        
+        return;
+    };
+
     const deleteProductAdmin = async () => {
         try {
 
@@ -133,11 +137,59 @@ function deleteProduct(event) {
                 localStorage.removeItem('token');
                 console.log("Token eliminado del localStorage debido a un error 403");
             } else {
-                console.error("Error al obtener la orden:", error);
+                console.error("Error al eliminar el producto:", error);
             }
         }
     }
     deleteProductAdmin();
-    location.reload();
+    mostrarCarga()
+    setTimeout(ocultarCarga, 1000);
 }
 
+function addProduct(event) {
+    event.preventDefault();
+    const addProductAdmin = async () => {
+        try {
+            const addNameProduct = document.getElementById('nameAddProduct').value;
+            const addDescriptionProduct = document.getElementById('descriptionAddProduct').value;
+            const addImgProduct = document.getElementById('imgAddProduct').src;
+            const addPriceProduct = document.getElementById('priceAddProduct').value;
+            const token = localStorage.getItem('token');
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+            };
+            const data = {
+                name: addNameProduct,
+                descriptions: addDescriptionProduct,
+                price: addPriceProduct,
+                img: addImgProduct,
+            };
+            const url = `http://localhost:3000/admin/products`;
+            const sendData = await axios.post(url, data, { headers });
+            console.log(sendData);
+        } catch (error) {
+            console.log(error);
+            if (error.response.status === 403) {
+                localStorage.removeItem('token');
+                console.log("Token eliminado del localStorage debido a un error 403");
+            } else {
+                console.error("Error al agregar el producto:", error);
+            }
+        }
+    }
+    addProductAdmin();
+    mostrarCarga()
+    setTimeout(ocultarCarga, 1000);
+
+}
+
+//MUESTRA EL LOGO DE CARGA UNA VEZ REALIZADO EL SUBMIT
+function mostrarCarga() {
+    document.getElementById("loading").style.display = "block";
+}
+
+//OCULTA EL LOGO DE CARGA
+function ocultarCarga(rol_user) {
+    document.getElementById("loading").style.display = "none"
+    location.reload();
+}
