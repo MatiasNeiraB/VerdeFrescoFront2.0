@@ -9,7 +9,6 @@ window.onload = function getOrdenes() {
             const response = await axios.get("http://localhost:3000/admin/orders", { headers });
             const orders = response.data;
             const orderDinamicas = document.getElementById('order');
-            console.log(orders);
             orders.forEach((order) => {
                 const formatDates = formatDate(order.date);
                 const tr = document.createElement('tr');
@@ -20,6 +19,7 @@ window.onload = function getOrdenes() {
                         <td>${formatDates}</td>
                         <td>${order.status_cart}</td>
                         <td>$${order.totalOrder}</td>
+                        <td><button class="btn btn-danger" id="${order.id_cart}" onclick="deleteOrders(event)">ELIMINAR</button></td>
                         <td><button type="button" class="button" data-bs-toggle="modal" onclick="seeOrders(event)" data-bs-target="#modal-orders" id="${order.id_cart}">VER</td>
                     </tr>
                 `;
@@ -28,7 +28,11 @@ window.onload = function getOrdenes() {
         } catch (error) {
             if (error.response.status === 403) {
                 localStorage.removeItem('token');
-                console.log("Token eliminado del localStorage debido a un error 403");
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    window.location.href = "http://127.0.0.1:5500/pages/login.html";
+                    console.log("Token eliminado del localStorage debido a un error 403");
+                }
             } else {
                 console.error("Error al obtener las ordenes:", error);
             }
@@ -52,7 +56,7 @@ function formatDate(dateString) {
 
 function seeOrders(event) {
     event.preventDefault();
-    const order_id  = event.target.id;
+    const order_id = event.target.id;
     const seeOrder = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -67,11 +71,11 @@ function seeOrders(event) {
             const dataOrder = sendData.data[0];
             const dataOrders = sendData.data;
             const orderDinamicas = document.getElementById('body_modal');
-            const titleOrder = document.getElementById('ordenTitulo');
-            const mensajeTexto = "Orden" + " #" + dataOrder.id_cart;
+            const titleOrder = document.getElementById('orderId');
+            const mensajeTexto = order_id;
             titleOrder.innerHTML = mensajeTexto;
+            orderDinamicas.innerHTML = '';
             dataOrders.forEach((order) => {
-                const formatDates = formatDate(order.date);
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <tr>
@@ -88,11 +92,99 @@ function seeOrders(event) {
             console.log(error);
             if (error.response.status === 403) {
                 localStorage.removeItem('token');
-                console.log("Token eliminado del localStorage debido a un error 403");
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    window.location.href = "http://127.0.0.1:5500/pages/login.html";
+                    console.log("Token eliminado del localStorage debido a un error 403");
+                }
             } else {
                 console.error("Error al obtener la orden:", error);
             }
         }
     }
     seeOrder();
+}
+
+function putOrders(event) {
+    const putOrder = async () => {
+        try {
+            const orderId = document.getElementById('orderId').innerText;
+            const putStatusOrder = document.getElementById('statusOrder').value;
+            const token = localStorage.getItem('token');
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+            };
+            const data = {
+                status_cart: putStatusOrder
+            };
+            const url = `http://localhost:3000/admin/orders/${orderId}`;
+            const sendData = await axios.put(url, data, { headers });
+        } catch (error) {
+            console.log(error);
+            if (error.response.status === 403) {
+                localStorage.removeItem('token');
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    window.location.href = "http://127.0.0.1:5500/pages/login.html";
+                    console.log("Token eliminado del localStorage debido a un error 403");
+                }
+            } else {
+                console.error("Error al editar el producto:", error);
+            }
+        }
+    }
+    putOrder();
+    mostrarCarga()
+    setTimeout(ocultarCarga, 1000);
+}
+
+
+function deleteOrders(event) {
+    event.preventDefault();
+    const order_id = event.target.id;
+    const userConfirmed = window.confirm("¿Estás seguro de que deseas eliminar la orden #" + order_id + "?");
+    if (!userConfirmed) {
+        return;
+    };
+
+    const deleteOrder = async () => {
+        try {
+
+            const token = localStorage.getItem('token');
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+            };
+            const url = `http://localhost:3000/admin/orders/${order_id}`;
+            const sendData = await axios.delete(url, {
+                headers: headers, data: { id_cart: order_id }
+            });
+        } catch (error) {
+            console.log(error);
+            if (error.response.status === 403) {
+                localStorage.removeItem('token');
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    window.location.href = "http://127.0.0.1:5500/pages/login.html";
+                    console.log("Token eliminado del localStorage debido a un error 403");
+                }
+                console.error("Error al eliminar el producto:", error);
+            }
+        }
+    }
+    deleteOrder();
+    mostrarCarga()
+    setTimeout(ocultarCarga, 1000);
+}
+
+
+
+//MUESTRA EL LOGO DE CARGA UNA VEZ REALIZADO EL SUBMIT
+function mostrarCarga() {
+    document.getElementById("loading").style.display = "block";
+}
+
+//OCULTA EL LOGO DE CARGA
+function ocultarCarga(rol_user) {
+    document.getElementById("loading").style.display = "none"
+    location.reload();
 }

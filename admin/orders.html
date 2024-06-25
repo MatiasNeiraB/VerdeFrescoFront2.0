@@ -47,6 +47,7 @@
 
     <header>
         <h1>ORDENES</h1>
+        <div id="loading"></div>
     </header>
 
     <section class="tableCart">
@@ -59,6 +60,7 @@
                         <th scope="col">FECHA</th>
                         <th scope="col">ESTADO</th>
                         <th scope="col">TOTAL ORDEN</th>
+                        <th scope="col">ELIMINAR</th>
                         <th scope="col">VER</th>
                     </tr>
                 </thead>
@@ -75,30 +77,36 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ordenTitulo"></h1>
+                    <h1 class="modal-title fs-5" >ORDEN #</h1><h2><strong id="orderId"></strong></h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <section class="tableCart">
-                        <div>
-                            <table class="table text-center">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">PRODUCTO</th>
-                                        <th scope="col">CANTIDAD</th>
-                                        <th scope="col">PRECIO</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="body_modal">
-                                </tbody>
-                            </table>
-                        </div>
-                </div>
-                </section>
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">PRODUCTO</th>
+                                <th scope="col">CANTIDAD</th>
+                                <th scope="col">PRECIO</th>
+                            </tr>
+                        </thead>
+                        <tbody id="body_modal">
+
+                        </tbody>
+                        <tr>
+                            <td><strong>ESTADO:</strong></td>
+                            <td><select id="statusOrder">
+                                <option value="Pendiente">Pendiente</option>
+                                <option value="Procesando">Procesando</option>
+                                <option value="Cancelado">Cancelado</option>
+                                <option value="Completado">Completado</option>
+                            </select></td>
+                            </tr>
+                    </table>
+                    
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" onclick="putOrders(event)" class="btn btn-success" data-bs-dismiss="modal">Guardar</button>
             </div>
         </div>
     </div>

@@ -27,7 +27,11 @@ window.onload = function products() {
         } catch (error) {
             if (error.response.status === 403) {
                 localStorage.removeItem('token');
-                console.log("Token eliminado del localStorage debido a un error 403");
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    window.location.href = "http://127.0.0.1:5500/pages/login.html";
+                    console.log("Token eliminado del localStorage debido a un error 403");
+                }
             } else {
                 console.error("Error al obtener los productos:", error);
             }

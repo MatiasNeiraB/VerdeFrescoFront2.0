@@ -78,7 +78,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5">EDITAR PRODUCTO # </h1><h4 class="modal-title" id="id_Product" fs-5"></h4>
+                    <h1 class="modal-title fs-5">EDITAR PRODUCTO # </h1><h2 class="modal-title" fs-5"><strong id="id_Product"></strong></h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -87,10 +87,13 @@
                             <label for="recipient-name" class="col-form-label">Nombre:</label>
                             <input type="text" class="form-control" id="nameProduct">
                         </div>
-                        <div class="mb-3 img">
+                        <div class="mb-3">
                             <label for="img">Imagen:</label>
                             <img class="img_modal" id="imgProduct" alt="">
-                            <input type="file" id="img" name="img" accept="image/*"></input>
+                        </div>
+                            <div class="mb-3">
+                            <label for="img">URL:</label>
+                            <input type="text" class="form-control" id="img">
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Descripción:</label>
@@ -103,8 +106,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" onclick="putProduct(event)" data-bs-dismiss="modal">Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success" onclick="putProduct(event)" data-bs-dismiss="modal">Guardar</button>
                 </div>
             </div>
         </div>
@@ -123,10 +126,10 @@
                             <label for="recipient-name" class="col-form-label">Nombre:</label>
                             <input type="text" class="form-control" id="nameAddProduct">
                         </div>
-                        <div class="mb-3 img">
+                        <div class="mb-3">
                             <label for="img">Imagen:</label>
                             <img class="img_modal" id="imgAddProduct" alt="">
-                            <input type="file" id="img" name="img" accept="image/*"></input>
+                            <input type="url" class="putImg" id="img"></input>
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Descripción:</label>
@@ -139,8 +142,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary"  onclick="addProduct(event)" data-bs-dismiss="modal">Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success"  onclick="addProduct(event)" data-bs-dismiss="modal">Guardar</button>
                 </div>
             </div>
         </div>
