@@ -10,13 +10,13 @@ function loginCheck(event) {
             if (emailValue) {
                 if (emailValue.includes('@')) {
                     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(emailValue)) {
-                        console.log("El email no es válido");
+                        alert("El email no es válido");
                         errorEmail();
                         errorPassword();
                     } else if (emailValue.length > 30) {
                         errorEmail();
                         errorPassword();
-                        console.log("Credenciales incorrectas.");
+                        alert("El email no es válido");
                     } else {
                         const data = {
                             email: emailValue,
@@ -40,16 +40,16 @@ function loginCheck(event) {
                                 window.location.href = "http://127.0.0.1:5500/index.html";
                             }
                         } else {
-                            console.log("Credenciales incorrectas");
+                            alert("Credenciales incorrectas");
                             errorEmail();
                             errorPassword();
                         }
                     }
                 } else {
-                    console.log("El email tiene que tener @");
+                    alert("El email tiene que tener @");
                 }
             } else {
-                console.log("El email es obligatorio");
+                alert("El email es obligatorio");
             }
         } catch (error) {
             console.log(error);

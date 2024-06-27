@@ -34,7 +34,7 @@
 
     <nav id="navbar">
         <div class="navbar-left">
-            <a href="/index.html"><img src="../assets/img/logo.png" alt="verde-fresco"></a>
+            <a href="/admin/orders.html"><img src="../assets/img/logo.png" alt="verde-fresco"></a>
         </div>
         <div class="navbar-middle">
             <a href="./products.html">PRODUCTOS</a>
@@ -42,6 +42,9 @@
         </div>
         <div class="navbar-right">
             <a id="nameUser" href="./login.html"><i id="iconUser" class="fa-solid fa-user"></i></a>
+            <a onclick="exit()" href="../index.html"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <button type="button" data-bs-toggle="modal" class="btn btn-success" data-bs-target="#addClient"
+                data-bs-whatever="@mdo">AGREGAR</button>
         </div>
     </nav>
 
@@ -73,53 +76,101 @@
         </div>
     </section>
 
+    <section>
+        <div class="modal fade" id="editClient" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">EDITAR CLIENTE # </h1>
+                        <h2 class="modal-title" fs-5"><strong id="id_client"></strong></h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Nombre:</label>
+                                <input type="text" class="form-control" id="nameClient">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Apellido:</label>
+                                <input type="text" class="form-control" id="surNameClient">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Nombre de Usuario:</label>
+                                <input type="text" class="form-control" id="userNameClient">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Email:</label>
+                                <input type="email" class="form-control" id="emailClient">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Rol:</label>
+                                <select id="rolClient">
+                                    <option value="2">CLIENTE</option>
+                                    <option value="1">ADMINISTRADOR</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <h2 id="dateClient"></h2>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CERRAR</button>
+                        <button type="button" class="btn btn-success" onclick="putClients(event)"
+                            data-bs-dismiss="modal">GUARDAR</button>
+                    </div>
+                </div>
+            </div>
+    </section>
 
-    <!-- Modal -->
-    <div class="modal fade" id="editClient" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5">EDITAR CLIENTE # </h1>
-                    <h2 class="modal-title" fs-5"><strong id="id_client"></strong></h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="nameClient">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Apellido:</label>
-                            <input type="text" class="form-control" id="surNameClient">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Nombre de Usuario:</label>
-                            <input type="text" class="form-control" id="userNameClient">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Email:</label>
-                            <input type="email" class="form-control" id="emailClient">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Rol:</label>
-                            <select id="rolClient">
-                                <option value="2">CLIENTE</option>
-                                <option value="1">ADMINISTRADOR</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <h2 id="dateClient"></h2>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CERRAR</button>
-                    <button type="button" class="btn btn-success" onclick="putClients(event)" data-bs-dismiss="modal">GUARDAR</button>
+    <section>
+        <div class="modal fade" id="addClient" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">AGREGAR CLIENTE</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Nombre:</label>
+                                <input type="text" class="form-control" id="nameAddClient">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Apellido:</label>
+                                <input type="text" class="form-control" id="surNameAddClient">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Nombre de Usuario:</label>
+                                <input type="text" class="form-control" id="userNameAddClient">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Email:</label>
+                                <input type="email" class="form-control" id="emailAddClient">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Contraseña:</label>
+                                <input type="text" class="form-control" id="passwordAddClient">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Rol:</label>
+                                <select id="rolAddClient">
+                                    <option value="2">CLIENTE</option>
+                                    <option value="1">ADMINISTRADOR</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-success" onclick="addClients(event)" data-bs-dismiss="modal">Guardar</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
 </body>
 <script src="../index.js"></script>

@@ -21,8 +21,8 @@ window.onload = function getClient() {
                         <td>${client.email}</td>
                         <td>${client.name_rol}</td>
                         <td>${formatDates}</td>
-                        <td><button class="btn btn-danger" id="${client.id}" onclick="deleteClient(event)">ELIMINAR</button></td>
-                        <td><button type="button" class="button" data-bs-toggle="modal" onclick="seeClients(event)" data-bs-target="#editClient" id="${client.id}">EDITAR</td>
+                        <td><button class="btn btn-danger" id="${client.id}" onclick="deleteClients(event)">ELIMINAR</button></td>
+                        <td><button type="button" class="btn btn-success" data-bs-toggle="modal" onclick="seeClients(event)" data-bs-target="#editClient" id="${client.id}">EDITAR</td>
                     </tr>
                 `;
                 clientDinamicos.appendChild(tr);
@@ -127,25 +127,29 @@ function putClients(event) {
     setTimeout(ocultarCarga, 1000);
 }
 
-function addProduct(event) {
+function addClients(event) {
     event.preventDefault();
-    const addProductAdmin = async () => {
+    const addClient = async () => {
         try {
-            const addNameProduct = document.getElementById('nameAddProduct').value;
-            const addDescriptionProduct = document.getElementById('descriptionAddProduct').value;
-            const addImgProduct = document.getElementById('imgAddProduct').src;
-            const addPriceProduct = document.getElementById('priceAddProduct').value;
+            const nameAddClient = document.getElementById('nameAddClient').value;
+            const surNameAddClient = document.getElementById('surNameAddClient').value;
+            const userNameAddClient = document.getElementById('userNameAddClient').value;
+            const emailAddClient = document.getElementById('emailAddClient').value;
+            const passwordAddClient = document.getElementById('passwordAddClient').value;
+            const rolAddClient = document.getElementById('rolAddClient').value;
             const token = localStorage.getItem('token');
             const headers = {
                 'Authorization': `Bearer ${token}`,
             };
             const data = {
-                name: addNameProduct,
-                descriptions: addDescriptionProduct,
-                price: addPriceProduct,
-                img: addImgProduct,
+                name: nameAddClient,
+                surName: surNameAddClient,
+                userName: userNameAddClient,
+                email: emailAddClient,
+                password: passwordAddClient,
+                rol: rolAddClient,
             };
-            const url = `http://localhost:3000/admin/products`;
+            const url = `http://localhost:3000/admin/clients`;
             const sendData = await axios.post(url, data, { headers });
         } catch (error) {
             console.log(error);
@@ -157,15 +161,54 @@ function addProduct(event) {
                     console.log("Token eliminado del localStorage debido a un error 403");
                 }
             } else {
-                console.error("Error al agregar el producto:", error);
+                console.error("Error al agregar el cliente:", error);
             }
         }
     }
-    addProductAdmin();
+    addClient();
     mostrarCarga()
     setTimeout(ocultarCarga, 1000);
 
 }
+
+
+function deleteClients(event) {
+    event.preventDefault();
+    const client_id = event.target.id;
+    const userConfirmed = window.confirm("¿Estás seguro de que deseas eliminar el cliente #" + client_id + "?");
+    if (!userConfirmed) {
+        return;
+    };
+    const deleteClient = async () => {
+        try {
+
+            const token = localStorage.getItem('token');
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+            };
+            const url = `http://localhost:3000/admin/clients/${client_id}`;
+            const sendData = await axios.delete(url, {
+                headers: headers, data: { id: client_id }
+            });
+        } catch (error) {
+            console.log(error);
+            if (error.response.status === 403) {
+                localStorage.removeItem('token');
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    window.location.href = "http://127.0.0.1:5500/pages/login.html";
+                    console.log("Token eliminado del localStorage debido a un error 403");
+                }
+            } else {
+                console.error("Error al eliminar el producto:", error);
+            }
+        }
+    }
+    deleteClient();
+    mostrarCarga()
+    setTimeout(ocultarCarga, 1000);
+}
+
 
 //FORMATEA LA FECHA Y HORA QUE VIENE DE LA BASE DE DATOS
 function formatDate(dateString) {
@@ -175,7 +218,7 @@ function formatDate(dateString) {
     const day = String(date.getDate()).padStart(2, '0');
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
-    return `${day}-${month}-${year}- ${hours}:${minutes}`;
+    return `${day}-${month}-${year} / ${hours}:${minutes} HORAS`;
 }
 
 //MUESTRA EL LOGO DE CARGA UNA VEZ REALIZADO EL SUBMIT

@@ -20,7 +20,7 @@ window.onload = function getOrdenes() {
                         <td>${order.status_cart}</td>
                         <td>$${order.totalOrder}</td>
                         <td><button class="btn btn-danger" id="${order.id_cart}" onclick="deleteOrders(event)">ELIMINAR</button></td>
-                        <td><button type="button" class="button" data-bs-toggle="modal" onclick="seeOrders(event)" data-bs-target="#modal-orders" id="${order.id_cart}">VER</td>
+                        <td><button type="button" class="btn btn-success" data-bs-toggle="modal" onclick="seeOrders(event)" data-bs-target="#modal-orders" id="${order.id_cart}">VER</td>
                     </tr>
                 `;
                 orderDinamicas.appendChild(tr);
@@ -51,7 +51,7 @@ function formatDate(dateString) {
     const day = String(date.getDate()).padStart(2, '0');
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
-    return `${day}-${month}-${year}- ${hours}:${minutes}`;
+    return `${day}-${month}-${year} / ${hours}:${minutes} HORAS`;
 }
 
 function seeOrders(event) {

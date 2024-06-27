@@ -61,6 +61,7 @@ function addProductCart(event) {
                 };
                 const sendDataCart = await axios.post("http://localhost:3000/products", data, { headers });
                 console.log(sendDataCart);
+                quantityProduct.value = 0;
                 if (sendDataCart.status === 403) {
                     localStorage.removeItem('token');
                 } else

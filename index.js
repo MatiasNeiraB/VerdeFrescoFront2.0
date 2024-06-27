@@ -237,3 +237,11 @@ function seeCart() {
   getCart();
 
 }
+
+
+function exit(){
+  const token = localStorage.getItem('token')
+  const userName = localStorage.getItem('userName')
+  localStorage.removeItem('token');
+  localStorage.removeItem('userName');
+}

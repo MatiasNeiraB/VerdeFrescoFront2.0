@@ -18,7 +18,7 @@ window.onload = function getProduct() {
                         <td>${product.descriptions}</td>
                         <td>$${product.price}</td>
                         <td><button class="btn btn-danger" id="${product.id}" onclick="deleteProduct(event)">ELIMINAR</button></td>
-                        <td><button type="button" data-bs-toggle="modal" onclick="seeProductAdmin(event)" data-bs-target="#modal-product" id="${product.id}" data-bs-whatever="@mdo">EDITAR</button></td>
+                        <td><button type="button" class="btn btn-success" data-bs-toggle="modal" onclick="seeProductAdmin(event)" data-bs-target="#modal-product" id="${product.id}" data-bs-whatever="@mdo">EDITAR</button></td>
 
                     </tr>
                 `;
