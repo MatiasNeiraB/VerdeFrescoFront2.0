@@ -78,7 +78,7 @@
                             id="errorPassword" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     </div>
                     <div class="forget-password">
-                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" href="">Olvidé
+                        <a data-bs-toggle="modal" onclick="putPasswords()" data-bs-target="#exampleModal" data-bs-whatever="@mdo" href="">Olvidé
                             la contraseña.</a>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
@@ -94,16 +94,22 @@
                                             <div class="mb-3">
                                                 <label for="recipient-name" class="col-form-label">Correo
                                                     Electrónico:</label>
-                                                <input type="email" id="emailPassword" class="form-control"
+                                                <input type="email" id="emailClient" class="form-control">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="recipient-name" class="col-form-label">Contraseña Nueva:</label>
+                                                <input type="password" id="newPassword" class="form-control"
                                                     id="recipient-name">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="recipient-name" class="col-form-label">Repetir Contraseña Nueva</label>
+                                                <input type="password" class="form-control" id="newPasswordRepit">
                                             </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer ">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Cerrar</button>
-                                        <button type="button" onclick="mailPassword()" data-bs-dismiss="modal"
-                                            class="btn btn-success">Enviar</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="submit" onclick="putPasswords(event)" data-bs-dismiss="modal" class="btn btn-success">Enviar</button>
                                     </div>
                                 </div>
                             </div>

@@ -22,7 +22,7 @@ function loginCheck(event) {
                             email: emailValue,
                             password: passwordValue
                         }
-                        
+
                         const sendData = await axios.post("http://localhost:3000/login", data);
                         if (sendData.status === 200) {
                             const userResponse = sendData.data;
@@ -34,7 +34,7 @@ function loginCheck(event) {
                                 mostrarCarga();
                                 setTimeout(ocultarCarga, 1200);
                                 window.location.href = "http://127.0.0.1:5500/admin/orders.html";
-                            }else{
+                            } else {
                                 mostrarCarga();
                                 setTimeout(ocultarCarga, 1200);
                                 window.location.href = "http://127.0.0.1:5500/index.html";
@@ -57,6 +57,39 @@ function loginCheck(event) {
     }
     postLogin();
 }
+
+function putPasswords(event) {
+    event.preventDefault();
+    const putPassword = async () => {
+        try {
+            const emailClient = document.getElementById('emailClient').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const newPasswordRepit = document.getElementById('newPasswordRepit').value;
+            if (emailClient.includes('@')) {
+                if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(emailClient)) {
+                    alert("El email no es válido");
+                } else {
+                    if (newPassword === newPasswordRepit) {
+                        const data = {
+                            email: emailClient,
+                            password: newPassword,
+                        };
+                        const sendData = await axios.put('http://localhost:3000/login', data);
+                        console.log(sendData);
+                    } else {
+                        alert("Las contraseñas no son iguales");
+                    }
+                }
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    putPassword();
+    mostrarCarga()
+    setTimeout(ocultarCarga, 1000);
+}
+
 
 //MUESTRA EL LOGO DE CARGA UNA VEZ REALIZADO EL SUBMIT
 function mostrarCarga() {
@@ -90,10 +123,10 @@ function errorPassword() {
 
 //ESTA FUNCION ENVIA EL MAIL CUANDO EL USUARIO OLVIDA LA CONTRASEÑA
 function mailPassword() {
-    let emailValue = document.getElementById('emailPassword').value;
+    let emailValue = document.getElementById('emailClient').value;
     var templateParams = {
         destinatario: emailValue,
-        message: 'Para continuar con el proceso, por favor acceda al siguiente enlace:'
+        message: 'Su contraseña fué actualizada.'
     };
 
     emailjs.send('service_nc9bzlp', 'template_ovfbtir', templateParams).then(
