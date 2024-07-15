@@ -60,6 +60,7 @@ function seeProductAdmin(event) {
             const id_productTitle = document.getElementById('id_Product');
             id_productTitle.innerText = product_id;
             document.getElementById('nameProduct').value = product.name;
+            document.getElementById('img').value = product.img;
             document.getElementById('descriptionProduct').value = product.descriptions;
             document.getElementById('imgProduct').src = product.img;
             document.getElementById('priceProduct').value = product.price;

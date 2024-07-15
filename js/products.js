@@ -16,7 +16,7 @@ window.onload = function products() {
                         <h3>${product.name}</h3>
                         <p class="descriptions">${product.descriptions}<p/>
                         <button class="btn-cart" onclick="decrementButton(event)" id="${product.id}">-</button>
-                        <input type="number" class="numberInput" id="numberInput-${product.id}" value="0" />
+                        <input type="number" class="numberInput" id="numberInput-${product.id}" value="1" />
                         <button class="btn-cart" onclick="incrementButton(event)" id="${product.id}">+</button>
                         <p>$${product.price}</p>
                         <button type="submit" id="${product.id}" onclick="addProductCart(event)" class="buy-button">Comprar</button>
