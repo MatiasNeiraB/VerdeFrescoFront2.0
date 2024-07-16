@@ -85,7 +85,7 @@ function putPasswords(event) {
             console.log(error);
         }
     }
-    putPassword();
+    putPassword()
     mostrarCarga();
     mailPassword();
     setTimeout(ocultarCarga, 1000);
