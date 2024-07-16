@@ -39,7 +39,7 @@ function RegisterCheck(event) {
             }
         }
         postUser();
-        //mailRegister();
+        mailRegister();
         setTimeout(ocultarCarga, 1200);
     } else {
         console.log("Las contraseñas no son iguales.");

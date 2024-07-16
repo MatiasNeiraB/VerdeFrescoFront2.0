@@ -85,5 +85,52 @@ function deleteProduct(productId) {
         .catch(error => {
             console.error('Error al eliminar el producto del carrito:', error);
         });
-        location.reload();
+    location.reload();
+}
+
+
+function buyCarts() {
+    const buyCart = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+            };
+            const sendData = await axios.put("http://localhost:3000/cart", { headers });
+            if (response.status === 200) {
+                alert('GRACIAS POR TU COMPRA');
+                window.location.href = "http://127.0.0.1:5500/index.html";
+            } else {
+                console.log("Error al procesar la compra");
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    buyCart();
+}
+
+function buyCarts() {
+    const buyCart = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+            };
+            const response = await axios.put("http://localhost:3000/cart", {}, { headers });
+
+            if (response.status === 201) {
+                alert('GRACIAS POR TU COMPRA');
+                window.location.href = "http://127.0.0.1:5500/index.html";
+            } else {
+                console.error('Error al procesar la compra:', response.statusText);
+                alert('Hubo un problema al procesar tu compra. Inténtalo de nuevo.');
+            }
+        } catch (error) {
+            console.error('Error en la solicitud de compra:', error);
+            alert('Hubo un problema al procesar tu compra. Inténtalo de nuevo.');
+        }
+    }
+    buyCart();
 }

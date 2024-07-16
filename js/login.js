@@ -86,7 +86,8 @@ function putPasswords(event) {
         }
     }
     putPassword();
-    mostrarCarga()
+    mostrarCarga();
+    mailPassword();
     setTimeout(ocultarCarga, 1000);
 }
 
